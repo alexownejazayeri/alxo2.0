@@ -1,6 +1,6 @@
 import Page from '../../classes/Page'
 
-export default class Project extends Page {
+export default class Projects extends Page {
   constructor() {
     super({
       id: 'project',
@@ -9,8 +9,10 @@ export default class Project extends Page {
       elements: {},
     })
 
-    this.createProject()
+    this.createProjects()
   }
 
-  createProject() {}
+  createProjects() {
+    console.log('creating projects')
+  }
 }
