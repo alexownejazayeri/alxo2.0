@@ -1,9 +1,8 @@
 .navigation {
-  pointer-events: none;
   position: fixed;
-  z-index: z('navigation');
   width: 100%;
   color: #fff;
+  z-index: z('navigation');
 }
 
 .navigation__container {

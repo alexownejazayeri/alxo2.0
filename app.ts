@@ -18,14 +18,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
+  console.log('rendering about...')
+
   res.render('pages/about', {})
 })
 
 app.get('/contact', (req, res) => {
+  console.log('rendering contact...')
+
   res.render('pages/contact', {})
 })
 
 app.get('/projects', (req, res) => {
+  console.log('rendering projects...')
+
   res.render('pages/projects', {})
 })
 

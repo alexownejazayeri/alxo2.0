@@ -1,8 +1,9 @@
 import NormalizeWheel from 'normalize-wheel'
 
 import About from './pages/About'
+import Contact from './pages/Contact'
 import Home from './pages/Home'
-import Project from './pages/Projects'
+import Projects from './pages/Projects'
 
 import Canvas from './components/Canvas'
 
@@ -39,10 +40,11 @@ class App {
   createPages() {
     this.pages = {
       about: new About(),
+      contact: new Contact(),
       home: new Home({
         projectId: 0,
       }),
-      projects: new Project(),
+      projects: new Projects(),
     }
 
     this.page = this.pages[this.template || 'home']
