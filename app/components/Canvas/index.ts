@@ -11,11 +11,12 @@ export default class Canvas {
   camera: Camera
   gl: OGLRenderingContext
   home: Home
-  template: string
-  scene: Transform
+  projectId: number
   renderer: Renderer
+  scene: Transform
+  template: string
 
-  constructor({ template }) {
+  constructor({ projectId, template }) {
     this.template = template
 
     this.createRenderer()
@@ -29,7 +30,10 @@ export default class Canvas {
 
   createHome() {
     this.home = new Home({
+      camera: this.camera,
       gl: this.gl,
+      projectId: this.projectId,
+      renderer: this.renderer,
       scene: this.scene,
     })
 
@@ -44,16 +48,13 @@ export default class Canvas {
     })
 
     this.gl = this.renderer.gl
-
     document.body.appendChild(this.gl.canvas)
+    this.gl.clearColor(1, 1, 1, 1)
   }
 
   createCamera() {
     this.camera = new Camera(this.gl, { fov: 35 })
-    this.camera.position.z = 15
-
-    this.camera.position.set(0, 3, 6)
-    this.camera.lookAt([0, 0, 0])
+    this.camera.position.z = 25
   }
 
   createScene() {
@@ -68,6 +69,10 @@ export default class Canvas {
 
     if (!this.home) {
       this.createHome()
+    }
+
+    if (this.home) {
+      this.home.onResize()
     }
   }
 

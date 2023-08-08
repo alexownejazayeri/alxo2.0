@@ -7,7 +7,7 @@ const { merge } = webpackMerge
 module.exports = merge(config, {
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
 
   devServer: {
     devMiddleware: {

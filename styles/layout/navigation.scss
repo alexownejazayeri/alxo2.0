@@ -1,0 +1,47 @@
+.navigation {
+  pointer-events: none;
+  position: fixed;
+  z-index: z('navigation');
+  width: 100%;
+  color: #fff;
+}
+
+.navigation__container {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+  background-color: #232323;
+  height: 9.3rem;
+
+  padding: 3.2rem 4.8rem;
+
+  border-radius: 0 0 1.3rem 1.3rem;
+}
+
+.navigation__brand {
+  display: flex;
+
+  align-items: center;
+  justify-self: flex-start;
+}
+
+.navigation__brand__icon {
+  height: 100%;
+  margin-right: 1.3rem;
+}
+
+.navigation__brand__description {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation__link {
+}
+
+.navigation__location {
+  justify-self: flex-end;
+
+  font-size: 2.4rem;
+}

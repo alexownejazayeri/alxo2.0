@@ -4,6 +4,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // Initialize paths to variables for ease of use
 const dirApp = path.join(__dirname, 'app')
@@ -22,6 +23,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+
+    new FaviconsWebpackPlugin({
+      logo: './shared/favicon-260x260.svg',
+      devMode: 'webapp',
     }),
 
     new CleanWebpackPlugin(),

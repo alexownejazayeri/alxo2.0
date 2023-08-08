@@ -21,6 +21,14 @@ app.get('/about', (req, res) => {
   res.render('pages/about', {})
 })
 
+app.get('/contact', (req, res) => {
+  res.render('pages/contact', {})
+})
+
+app.get('/projects', (req, res) => {
+  res.render('pages/projects', {})
+})
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 })

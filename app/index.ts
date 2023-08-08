@@ -2,6 +2,7 @@ import NormalizeWheel from 'normalize-wheel'
 
 import About from './pages/About'
 import Home from './pages/Home'
+import Project from './pages/Projects'
 
 import Canvas from './components/Canvas'
 
@@ -11,10 +12,13 @@ class App {
   template: string | null | undefined
   pages: { [key: string]: About | Home }
   page: About | Home
+  projectId: number
 
   constructor() {
     this.content = document.querySelector('.content')
     this.template = this.content?.getAttribute('data-template')
+
+    this.projectId = 0
 
     this.createCanvas()
     this.createPages()
@@ -28,13 +32,17 @@ class App {
   createCanvas() {
     this.canvas = new Canvas({
       template: this.template,
+      projectId: this.projectId,
     })
   }
 
   createPages() {
     this.pages = {
       about: new About(),
-      home: new Home(),
+      home: new Home({
+        projectId: 0,
+      }),
+      projects: new Project(),
     }
 
     this.page = this.pages[this.template || 'home']
