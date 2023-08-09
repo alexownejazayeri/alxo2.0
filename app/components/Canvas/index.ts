@@ -67,7 +67,7 @@ export default class Canvas {
       aspect: window.innerWidth / window.innerHeight,
     })
 
-    if (!this.home) {
+    if (!this.home && this.template === 'home') {
       this.createHome()
     }
 
@@ -101,7 +101,9 @@ export default class Canvas {
   }
 
   update() {
-    this.home.update()
+    if (this.home) {
+      this.home.update()
+    }
 
     this.renderer.render({
       camera: this.camera,

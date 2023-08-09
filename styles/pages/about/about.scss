@@ -1,0 +1,100 @@
+.about {
+  @extend %center;
+  @extend %page;
+
+  overflow: hidden;
+  position: relative;
+  z-index: z('content');
+}
+
+.about__swirly__boi {
+  position: absolute;
+  top: -16rem;
+  left: -19rem;
+}
+
+.about__wrapper {
+  @extend %cover;
+  padding: 9.5rem 4.8rem 4.8rem 4.8rem;
+
+  display: flex;
+}
+
+.about__media {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 50%;
+}
+
+// .about__title {
+//   font-family: $font-eckmannpsych;
+
+//   color: #321f41;
+//   font-size: 12.8rem;
+//   text-align: center;
+// }
+
+.about__media__cards {
+  
+}
+
+.about__media__cards img:nth-child(1) {
+  position: absolute;
+
+  top: 3rem;
+}
+
+.about__media__cards img:nth-child(1) {
+  position: absolute;
+
+  top: 3rem;
+  left: 15rem;
+}
+
+.about__content__wrapper {
+  border: 1px solid yellowgreen;
+  width: 50%;
+  margin-top: 4.8rem;
+}
+
+.about__content__profesh {
+  margin-bottom: 3.6rem;
+}
+
+.about__content__profesh h2 {
+  font-size: 3.2rem;
+  font-weight: 500;
+
+  margin-bottom: 1.2rem;
+}
+
+.about__content__sendskies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 3.6rem;
+}
+
+.about__content__personal {
+  margin-bottom: 3.6rem;
+}
+
+.about__content__personal h2 {
+  font-size: 3.2rem;
+  font-weight: 500;
+
+  margin-bottom: 1.2rem;
+}
+
+.surf__clip {
+  height: 30.8rem;
+  width: 56.8rem;
+
+  border-radius: 1.3rem;
+}
+
+.about__cta {
+}

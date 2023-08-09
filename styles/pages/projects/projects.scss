@@ -1,0 +1,22 @@
+.projects {
+  @extend %center;
+  @extend %page;
+
+  overflow: hidden;
+}
+
+.projects__wrapper {
+  @extend %cover;
+  padding: 9.5rem 14.1rem 14.1rem 14.1rem;
+
+  z-index: z('content');
+}
+
+.projects__search__bar {
+  
+}
+
+.projects__grid {
+
+}
+

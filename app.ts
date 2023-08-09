@@ -29,11 +29,12 @@ app.get('/contact', (req, res) => {
   res.render('pages/contact', {})
 })
 
-app.get('/projects', (req, res) => {
-  console.log('rendering projects...')
+// TODO(alex): come back to projects
+// app.get('/projects', (req, res) => {
+//   console.log('rendering projects...')
 
-  res.render('pages/projects', {})
-})
+//   res.render('pages/projects', {})
+// })
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
