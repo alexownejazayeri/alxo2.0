@@ -7,8 +7,10 @@
 @import './base/fonts';
 @import './base/base';
 
-@import './layout/navigation.scss';
+@import './layout/navigation';
 
 @import './shared/pages';
 
 @import './pages/home/home';
+@import './pages/contact/contact';
+@import './pages/about/about';

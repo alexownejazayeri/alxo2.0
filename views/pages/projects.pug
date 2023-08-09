@@ -4,5 +4,9 @@ block variables
   - var template = 'projects'
 
 block content
-  .projects(data-background="#fff" data-color="#fff")
+  .projects()
     .projects__wrapper
+      .projects__search__filter
+        input.projects__search__bar(type="search")
+
+      .projects__grid
