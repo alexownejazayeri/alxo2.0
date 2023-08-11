@@ -1,46 +1,46 @@
-.navigation {
+.topnav {
   position: fixed;
   width: 100%;
   color: #fff;
-  z-index: z('navigation');
+  z-index: z('topnav');
 }
 
-.navigation__container {
+.topnav__container {
   display: flex;
   justify-content: space-between;
 
   align-items: center;
 
   background-color: #232323;
-  height: 9.3rem;
+  height: 7.2rem;
 
   padding: 3.2rem 4.8rem;
 
   border-radius: 0 0 1.3rem 1.3rem;
 }
 
-.navigation__brand {
+.topnav__brand {
   display: flex;
 
   align-items: center;
   justify-self: flex-start;
 }
 
-.navigation__brand__icon {
+.topnav__brand__icon {
   height: 100%;
   margin-right: 1.3rem;
 }
 
-.navigation__brand__description {
+.topnav__brand__description {
   display: flex;
   flex-direction: column;
 }
 
-.navigation__link {
+.topnav__link {
 }
 
-.navigation__location {
+.topnav__location {
   justify-self: flex-end;
 
-  font-size: 2.4rem;
+  font-size: 1.8rem;
 }

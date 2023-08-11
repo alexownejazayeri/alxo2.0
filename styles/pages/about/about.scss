@@ -15,9 +15,10 @@
 
 .about__wrapper {
   @extend %cover;
-  padding: 9.5rem 4.8rem 4.8rem 4.8rem;
+  padding: 7.2rem 4.8rem 4.8rem 4.8rem;
 
   display: flex;
+  justify-content: space-between;
 }
 
 .about__media {
@@ -28,34 +29,44 @@
   width: 50%;
 }
 
-// .about__title {
-//   font-family: $font-eckmannpsych;
+.about__title {
+  font-family: $font-eckmannpsych;
 
-//   color: #321f41;
-//   font-size: 12.8rem;
-//   text-align: center;
-// }
+  color: #321f41;
+  font-size: 12.8rem;
+  text-align: center;
+}
 
 .about__media__cards {
-  
+  position: relative;
+
+  height: 100%;
 }
 
 .about__media__cards img:nth-child(1) {
   position: absolute;
 
-  top: 3rem;
+  top: 2.4rem;
+  rotate: -3.14deg;
 }
 
-.about__media__cards img:nth-child(1) {
+.about__media__cards img:nth-child(2) {
   position: absolute;
 
-  top: 3rem;
-  left: 15rem;
+  top: 12.8rem;
+  left: 42rem;
+  rotate: 3.14deg;
+}
+
+.about__media__card {
+  height: 47.4rem;
+  width: 34.4rem;
+
+  border-radius: 1.3rem;
 }
 
 .about__content__wrapper {
-  border: 1px solid yellowgreen;
-  width: 50%;
+  width: 72rem;
   margin-top: 4.8rem;
 }
 
@@ -64,7 +75,7 @@
 }
 
 .about__content__profesh h2 {
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   font-weight: 500;
 
   margin-bottom: 1.2rem;
@@ -79,11 +90,10 @@
 }
 
 .about__content__personal {
-  margin-bottom: 3.6rem;
 }
 
 .about__content__personal h2 {
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   font-weight: 500;
 
   margin-bottom: 1.2rem;
@@ -97,4 +107,31 @@
 }
 
 .about__cta {
+  display: flex;
+  align-items: center;
+
+  margin-left: 6.4rem;
+}
+
+.about__cta--text {
+  font-size: 3.2rem;
+  width: 40rem;
+}
+
+.about__cta--arrow {
+  margin-right: 2.4rem;
+}
+
+.about__cta--link {
+  font-size: 2.4rem;
+  color: #053848;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  height: 14.8rem;
+  width: 14.8rem;
+  background: #c5f1ff;
 }
