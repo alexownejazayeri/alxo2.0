@@ -6,10 +6,12 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 
 import Canvas from './components/Canvas'
+import { Navigation } from './components/Navigation'
 
 class App {
   canvas: Canvas
   content: Element | null
+  navigation: Navigation
   template: string | null | undefined
   pages: { [key: string]: About | Home }
   page: About | Home
@@ -23,6 +25,7 @@ class App {
 
     this.createCanvas()
     this.createPages()
+    this.createNavigation()
     this.addEventListeners()
 
     this.onResize()
@@ -35,6 +38,10 @@ class App {
       template: this.template,
       projectId: this.projectId,
     })
+  }
+
+  createNavigation() {
+    this.navigation = new Navigation()
   }
 
   createPages() {
