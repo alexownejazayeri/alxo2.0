@@ -36,7 +36,6 @@ class App {
   createCanvas() {
     this.canvas = new Canvas({
       template: this.template,
-      projectId: this.projectId,
     })
   }
 
@@ -95,6 +94,10 @@ class App {
     }
   }
 
+  onProjectSelect(id: number) {
+    this.projectId = id
+  }
+
   /**
    * Listeners
    */
@@ -111,8 +114,13 @@ class App {
   }
 
   update() {
-    if (this.canvas && this.canvas.update) {
+    if (this.canvas && this.canvas.update && this.canvas.onProjectSelect) {
       this.canvas.update()
+      this.projectId = this.canvas.onProjectSelect()
+    }
+
+    if (this.page instanceof Home) {
+      this.page.update(this.projectId - 1 || 0)
     }
 
     window.requestAnimationFrame(this.update.bind(this))

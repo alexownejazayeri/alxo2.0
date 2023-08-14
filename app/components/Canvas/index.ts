@@ -16,7 +16,7 @@ export default class Canvas {
   scene: Transform
   template: string
 
-  constructor({ projectId, template }) {
+  constructor({ template }) {
     this.template = template
 
     this.createRenderer()
@@ -32,7 +32,6 @@ export default class Canvas {
     this.home = new Home({
       camera: this.camera,
       gl: this.gl,
-      projectId: this.projectId,
       renderer: this.renderer,
       scene: this.scene,
     })
@@ -98,6 +97,10 @@ export default class Canvas {
     if (this.home) {
       this.home.onWheel(event)
     }
+  }
+
+  onProjectSelect() {
+    return this.home.onProjectSelect()
   }
 
   update() {

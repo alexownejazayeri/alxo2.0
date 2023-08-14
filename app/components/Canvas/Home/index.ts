@@ -37,10 +37,9 @@ export default class {
   scene: Transform
   target: RenderTarget
 
-  constructor({ camera, gl, projectId, renderer, scene }) {
+  constructor({ camera, gl, renderer, scene }) {
     this.camera = camera
     this.gl = gl
-    this.projectId = projectId
     this.renderer = renderer
     this.scene = scene
 
@@ -205,6 +204,10 @@ export default class {
     this.target = new RenderTarget(this.gl)
   }
 
+  onProjectSelect() {
+    return this.projectId
+  }
+
   update() {
     if (!this.mesh) return
 
@@ -232,6 +235,7 @@ export default class {
 
     if (id !== 0 && this.objects[id - 1]?.offset) {
       this.activeElementId = id
+      this.projectId = id
     } else {
       this.activeElementId = 0
     }
@@ -243,7 +247,7 @@ export default class {
       this.mouse.y >= (window.innerWidth * 2) / 7
 
     if (!inMeshBoundary) {
-      this.mesh.rotation.y = Math.sin(this.ballRads.y) / 5
+      this.mesh.rotation.y = Math.sin(this.ballRads.y) / 3
       this.mesh.rotation.x = Math.sin(-this.ballRads.x) / 3
       this.mesh.rotation.z = Math.sin(-this.ballRads.z) / 10
       this.ballRads.y += 0.008
