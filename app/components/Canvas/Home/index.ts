@@ -18,6 +18,7 @@ import fragment from '../../../shaders/test-fragment.glsl'
 
 export default class {
   activeElementId: number
+  ballRads: { x: number; y: number; z: number }
   camera: Camera
   cursorPosition: { x: number; y: number }
   geometry: Sphere
@@ -51,6 +52,12 @@ export default class {
     }
 
     this.mouse = new Vec3()
+
+    this.ballRads = {
+      y: 0,
+      x: 0,
+      z: 0,
+    }
 
     this.createProgram()
     this.createGeometry()
@@ -158,7 +165,8 @@ export default class {
   }
 
   onTouchDown(event: MouseEvent | TouchEvent) {
-    this.pause = true
+    // TODO(alex): decide what to do here?
+    // this.pause = true
   }
 
   onTouchMove(event: MouseEvent | TouchEvent) {
@@ -230,15 +238,39 @@ export default class {
 
     this.mesh.program.uniforms.uTargetRender.value = 0
 
-    if (!this.pause) {
-      this.mesh.rotation.y += 0.005
-      this.mesh.rotation.x += 0.005
-      // this.mesh.rotation.z -= 0.001
+    const inMeshBoundary =
+      this.mouse.x >= (window.innerWidth * 2) / 2 &&
+      this.mouse.y >= (window.innerWidth * 2) / 7
+
+    if (!inMeshBoundary) {
+      this.mesh.rotation.y = Math.sin(this.ballRads.y) / 5
+      this.mesh.rotation.x = Math.sin(-this.ballRads.x) / 3
+      this.mesh.rotation.z = Math.sin(-this.ballRads.z) / 10
+      this.ballRads.y += 0.008
+      this.ballRads.x += 0.005
+      this.ballRads.z += 0.002
     }
 
-    if (this.pause && this.mesh.rotation.y > 0) {
-      this.mesh.rotation.y -= 0.1
-      this.mesh.rotation.x -= 0.1
+    if (inMeshBoundary) {
+      Math.ceil(this.mesh.rotation.y) > 0
+        ? (this.mesh.rotation.y -= 0.005)
+        : Math.ceil(this.mesh.rotation.y) < 0
+        ? (this.mesh.rotation.y += 0.005)
+        : (this.mesh.rotation.y = 0)
+      Math.ceil(this.mesh.rotation.x) > 0
+        ? (this.mesh.rotation.x -= 0.005)
+        : Math.ceil(this.mesh.rotation.x) < 0
+        ? (this.mesh.rotation.x += 0.005)
+        : (this.mesh.rotation.x = 0)
+      Math.ceil(this.mesh.rotation.z) > 0
+        ? (this.mesh.rotation.z -= 0.001)
+        : Math.ceil(this.mesh.rotation.z) < 0
+        ? (this.mesh.rotation.z += 0.001)
+        : (this.mesh.rotation.z = 0)
+
+      this.ballRads.y > 0 ? (this.ballRads.y = 0) : null
+      this.ballRads.x > 0 ? (this.ballRads.x = 0) : null
+      this.ballRads.z > 0 ? (this.ballRads.z = 0) : null
     }
   }
 }

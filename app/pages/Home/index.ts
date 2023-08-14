@@ -44,8 +44,6 @@ export default class Home extends Page {
   }
 
   createProject() {
-    console.log('creating project...')
-
     this.projectShowcase = new ProjectShowcase({
       title: PROJECTS_MOCK[0]?.title,
       imageUrl: PROJECTS_MOCK[0]?.image_url,

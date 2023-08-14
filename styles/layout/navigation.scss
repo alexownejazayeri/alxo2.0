@@ -1,6 +1,6 @@
 .navigation {
   @extend %cover;
-  position: relative;
+  // position: relative;
 
   visibility: hidden;
   z-index: z('navigation');
@@ -31,10 +31,11 @@
   text-decoration: underline;
 }
 
-.navigation .navigation__swirly__boi:nth-child(1) {
-  position: absolute;
+// TODO(alex): decide how to handle swirls
+// abs pos causing canvas to disapper
+// .navigation .navigation__swirly__boi:nth-child(1) {
 
-  left: 20rem;
+//   left: 20rem;
 
-  z-index: inherit;
-}
+//   z-index: inherit;
+// }
