@@ -13,3 +13,6 @@ $z-indexes: (
   'p5',
   'p6'
 );
+
+$main-card-height: calc(2 / 3 * 100vh);
+$main-card-width: $main-card-height * 0.72;
