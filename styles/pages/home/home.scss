@@ -66,11 +66,13 @@
   top: 13.5rem;
 }
 
-.home__projects__media .home__projects__media:nth-child(1) {
-  height: 62rem;
-  width: 50rem;
+.home__projects__media--card1 {
+  height: $main-card-height;
+  width: $main-card-width;
 
   left: 37rem;
+
+  position: absolute;
 
   background: #808080;
   border-radius: 0.7rem;
@@ -78,11 +80,13 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home__projects__media .home__projects__media:nth-child(2) {
-  height: 60rem;
-  width: 48rem;
+.home__projects__media--card2 {
+  height: $main-card-height * 0.96;
+  width: $main-card-width * 0.96;
 
-  top: 14.5rem;
+  position: absolute;
+
+  top: 1.5rem;
   left: 32rem;
 
   background: #808080;
@@ -91,11 +95,13 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home__projects__media .home__projects__media:nth-child(3) {
-  height: 58rem;
+.home__projects__media--card3 {
+  height: calc($main-card-height * 0.96 * 0.96);
   width: 46rem;
 
-  top: 15.5rem;
+  position: absolute;
+
+  top: 2.5rem;
   left: 26rem;
 
   background: #808080;
@@ -104,11 +110,13 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home__projects__media .home__projects__media:nth-child(4) {
-  height: 55rem;
+.home__projects__media--card4 {
+  height: calc($main-card-height * 0.96 * 0.96 * 0.96);
   width: 43rem;
 
-  top: 16.5rem;
+  position: absolute;
+
+  top: 3.5rem;
   left: 21rem;
 
   background: #808080;
@@ -117,11 +125,13 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home__projects__media .home__projects__media:nth-child(5) {
-  height: 52rem;
+.home__projects__media--card5 {
+  height: calc($main-card-height * 0.96 * 0.96 * 0.96 * 0.96);
   width: 37rem;
 
-  top: 17.5rem;
+  position: absolute;
+
+  top: 4.5rem;
   left: 16rem;
 
   background: #808080;
@@ -130,11 +140,13 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.home__projects__media .home__projects__media:nth-child(6) {
-  height: 49rem;
+.home__projects__media--card6 {
+  height: calc($main-card-height * 0.96 * 0.96 * 0.96 * 0.96 * 0.96);
   width: 33rem;
 
-  top: 18.5rem;
+  position: absolute;
+
+  top: 5.5rem;
   left: 11rem;
 
   background: #808080;

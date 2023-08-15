@@ -114,11 +114,13 @@ class App {
   }
 
   update() {
-    if (this.canvas && this.canvas.update && this.canvas.onProjectSelect) {
+    if (this.canvas && this.canvas.update) {
       this.canvas.update()
-      this.projectId = this.canvas.onProjectSelect()
     }
 
+    if (this.canvas.home) {
+      this.projectId = this.canvas.onProjectSelect()
+    }
     if (this.page instanceof Home) {
       this.page.update(this.projectId - 1 || 0)
     }

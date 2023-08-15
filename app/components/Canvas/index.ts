@@ -100,7 +100,10 @@ export default class Canvas {
   }
 
   onProjectSelect() {
-    return this.home.onProjectSelect()
+    if (this.home.onProjectSelect) {
+      return this.home.onProjectSelect()
+    }
+    return 0
   }
 
   update() {
