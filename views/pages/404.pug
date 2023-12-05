@@ -1,8 +1,10 @@
-//- extends ../base.pug
+extends ../base.pug
 
 block variables
   - var template = 'fourohfour'
 
 block content
-  .fourohfour
-    p "Uh-oh, I do-nut know what you're looking for."
+  .fourohfour()
+    .fourohfour__wrapper
+      .fourohfour__header 404
+      .fourohfour__message I "donut" think you're gonna find what you're looking for here.

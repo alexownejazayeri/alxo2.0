@@ -132,6 +132,10 @@ export default class Canvas {
       this.home.update()
     }
 
+    if (this.fourohfour) {
+      this.fourohfour.update()
+    }
+
     this.renderer.render({
       camera: this.camera,
       scene: this.scene,

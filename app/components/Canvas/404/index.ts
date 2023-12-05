@@ -5,22 +5,20 @@ import {
   Program,
   Renderer,
   RenderTarget,
-  Sphere,
+  Torus,
   Transform,
   Vec3,
 } from 'ogl-typescript'
 
 // @ts-ignore
-import vertex from '../../../shaders/test-vertex.glsl'
+import vertex from '../../../shaders/donut-vertex.glsl'
 // @ts-ignore
-import fragment from '../../../shaders/test-fragment.glsl'
+import fragment from '../../../shaders/donut-fragment.glsl'
 
 export default class {
   activeElementId: number
-  ballRads: { x: number; y: number; z: number }
   camera: Camera
-  cursorPosition: { x: number; y: number }
-  geometry: Sphere
+  geometry: Torus
   gl: OGLRenderingContext
   highlight: Mesh
   mesh: Mesh
@@ -42,30 +40,17 @@ export default class {
     this.renderer = renderer
     this.scene = scene
 
-    this.pause = false
-
-    this.cursorPosition = {
-      x: 0,
-      y: 0,
-    }
-
-    this.mouse = new Vec3()
-
-    this.ballRads = {
-      y: 0,
-      x: 0,
-      z: 0,
-    }
-
     this.createProgram()
     this.createGeometry()
     this.createMesh()
   }
 
   createGeometry() {
-    this.geometry = new Sphere(this.gl, {
-      radius: 1,
-      widthSegments: 64,
+    this.geometry = new Torus(this.gl, {
+      radius: 2,
+      tube: 1,
+      radialSegments: 24,
+      tubularSegments: 48,
     })
   }
 
@@ -74,8 +59,6 @@ export default class {
       geometry: this.geometry,
       program: this.program,
     })
-
-    this.mesh.position = new Vec3(0, 0, 0)
 
     this.mesh.setParent(this.scene)
   }
@@ -106,7 +89,7 @@ export default class {
   update() {
     if (!this.mesh) return
 
-    const data = new Uint8Array(4)
+    console.log('this is updating...')
 
     this.mesh.program.uniforms.uTargetRender.value = 1
 
@@ -115,6 +98,10 @@ export default class {
       camera: this.camera,
       target: this.target,
     })
+
+    this.mesh.rotation.x += 0.001
+    this.mesh.rotation.y += 0.005
+    this.mesh.rotation.z += 0.003
 
     this.mesh.program.uniforms.uTargetRender.value = 0
   }
