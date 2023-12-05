@@ -124,9 +124,7 @@ export default class Home extends Page {
       )
 
       if (card && card.style) {
-        console.log({ index: i, card, style: card.style })
         card.style.backgroundImage = `url(${project.image_url})`
-        console.log({ style: card.style })
       }
     })
   }
