@@ -14,5 +14,6 @@ $z-indexes: (
   'p6'
 );
 
-$main-card-height: calc(2 / 3 * 100vh);
+$main-card-height: calc(5 / 9 * 100vh);
 $main-card-width: $main-card-height * 0.72;
+$smooth-bezier: all 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01);

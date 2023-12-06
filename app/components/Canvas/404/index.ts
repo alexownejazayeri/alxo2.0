@@ -89,8 +89,6 @@ export default class {
   update() {
     if (!this.mesh) return
 
-    console.log('this is updating...')
-
     this.mesh.program.uniforms.uTargetRender.value = 1
 
     this.renderer.render({
