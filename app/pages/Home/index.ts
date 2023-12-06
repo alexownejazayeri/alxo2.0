@@ -6,7 +6,7 @@ const PROJECTS_MOCK = [
     title: 'Koality',
     description:
       'Project 1: Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/200',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -20,7 +20,7 @@ const PROJECTS_MOCK = [
     title: 'Tinfur',
     description:
       'Project 2: Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/201',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -34,7 +34,7 @@ const PROJECTS_MOCK = [
     title: 'OP-1 Kenobi',
     description:
       'Project 3: This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/202',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -48,7 +48,7 @@ const PROJECTS_MOCK = [
     title: 'CODE-LE',
     description:
       'Project 4: World clone for learning and practicing coding vocabulary and concepts built with React.',
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/203',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -62,7 +62,7 @@ const PROJECTS_MOCK = [
     title: 'LiveOrder',
     description:
       "Project 5: Aloompa's ticketing product used by Outside Lands. Worked out an optimized data model for the backend and built both web and mobile views using Next.js",
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/204',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -76,7 +76,7 @@ const PROJECTS_MOCK = [
     title: 'Project 6',
     description:
       'Project 6: This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://i.imgur.com/km2zOOc.png',
+    image_url: 'https://picsum.photos/205/',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -122,7 +122,6 @@ export default class Home extends Page {
       const card: HTMLElement | null = document.querySelector(
         `.home__projects__media--card${i + 1}`
       )
-
       if (card && card.style) {
         card.style.backgroundImage = `url(${project.image_url})`
       }
@@ -134,8 +133,8 @@ export default class Home extends Page {
       this.projectShowcase.update({
         selectedTitle: PROJECTS_MOCK[id].title,
         selectedDescription: PROJECTS_MOCK[id].description,
-        selectedImageUrl: PROJECTS_MOCK[id].image_url,
         selectedNumber: `0${id + 1}.`,
+        id,
       })
     }
   }
