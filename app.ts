@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 import { Application } from 'express'
 
 dotenv.config()
+
 const app: Application = express()
 const port = process.env.EXPRESS_PORT || 8160
 
@@ -23,6 +24,10 @@ app.get('/about', (req, res) => {
 
 app.get('/contact', (req, res) => {
   res.render('pages/contact', {})
+})
+
+app.get('*', (req, res) => {
+  res.render('pages/404', {})
 })
 
 // TODO(alex): come back to projects

@@ -1,0 +1,25 @@
+.fourohfour {
+  @extend %center;
+  @extend %page;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.fourohfour__header {
+  font-size: 10rem;
+  margin-bottom: 2rem;
+}
+
+.fourohfour__wrapper {
+  @extend %cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: z('content');
+
+  padding: 10rem 0;
+  font-size: 6rem;
+}

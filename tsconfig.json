@@ -4,7 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2023", "dom"],
     "target": "es5",
-    "module": "CommonJS",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noImplicitAny": false,
     "noEmitOnError": false,

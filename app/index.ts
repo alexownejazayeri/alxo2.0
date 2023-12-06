@@ -3,7 +3,7 @@ import NormalizeWheel from 'normalize-wheel'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
-import Projects from './pages/Projects'
+import FourOhFour from './pages/404'
 
 import Canvas from './components/Canvas'
 import { Navigation } from './components/Navigation'
@@ -50,16 +50,13 @@ class App {
       home: new Home({
         projectId: 0,
       }),
-      projects: new Projects(),
+      fourohfour: new FourOhFour(),
     }
 
     this.page = this.pages[this.template || 'home']
     this.page.create()
   }
 
-  /**
-   * Events
-   */
   onResize() {
     window.requestAnimationFrame(() => this.canvas.onResize())
   }
@@ -98,9 +95,6 @@ class App {
     this.projectId = id
   }
 
-  /**
-   * Listeners
-   */
   addEventListeners() {
     window.addEventListener('mousewheel', this.onWheel.bind(this))
 
@@ -121,6 +115,7 @@ class App {
     if (this.canvas.home) {
       this.projectId = this.canvas.onProjectSelect()
     }
+
     if (this.page instanceof Home) {
       this.page.update(this.projectId - 1 || 0)
     }

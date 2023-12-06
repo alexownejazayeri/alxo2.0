@@ -6,9 +6,11 @@ import {
 } from 'ogl-typescript'
 
 import Home from './Home'
+import FourOhFour from './404'
 
 export default class Canvas {
   camera: Camera
+  fourohfour: FourOhFour
   gl: OGLRenderingContext
   home: Home
   projectId: number
@@ -30,6 +32,17 @@ export default class Canvas {
 
   createHome() {
     this.home = new Home({
+      camera: this.camera,
+      gl: this.gl,
+      renderer: this.renderer,
+      scene: this.scene,
+    })
+
+    this.renderer.render({ scene: this.scene, camera: this.camera })
+  }
+
+  createFourOhFour() {
+    this.fourohfour = new FourOhFour({
       camera: this.camera,
       gl: this.gl,
       renderer: this.renderer,
@@ -73,6 +86,14 @@ export default class Canvas {
     if (this.home) {
       this.home.onResize()
     }
+
+    if (!this.fourohfour && this.template === 'fourohfour') {
+      this.createFourOhFour()
+    }
+
+    if (this.fourohfour) {
+      this.fourohfour.onResize()
+    }
   }
 
   onTouchDown(event: MouseEvent | TouchEvent) {
@@ -109,6 +130,10 @@ export default class Canvas {
   update() {
     if (this.home) {
       this.home.update()
+    }
+
+    if (this.fourohfour) {
+      this.fourohfour.update()
     }
 
     this.renderer.render({
