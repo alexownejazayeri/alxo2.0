@@ -1,3 +1,5 @@
+import GSAP from 'gsap'
+
 const mediaStyles = [
   'home__projects__media--card1',
   'home__projects__media--card2',
@@ -92,6 +94,42 @@ export default class ImageCard {
         this.project4.className = mediaStyles.at(3 - this.currentProjectIndex)!
         this.project5.className = mediaStyles.at(4 - this.currentProjectIndex)!
         this.project6.className = mediaStyles.at(5 - this.currentProjectIndex)!
+
+        GSAP.fromTo(
+          '.home__projects__info--line',
+          { x: -30, autoAlpha: 0, ease: 'expo.in' },
+          { x: 0, autoAlpha: 1, duration: 0.5 }
+        )
+
+        GSAP.fromTo(
+          '.home__projects__info--title',
+          { autoAlpha: 0.5, ease: 'expo.in' },
+          { autoAlpha: 1, duration: 0.5 }
+        )
+
+        GSAP.fromTo(
+          '.home__project__overview--description',
+          { autoAlpha: 0.3, ease: 'expo.in' },
+          { autoAlpha: 1, duration: 0.8 }
+        )
+
+        GSAP.fromTo(
+          '.home__project__overview__links--url',
+          { autoAlpha: 0.3, ease: 'expo.in' },
+          { autoAlpha: 1, delay: 0.1, duration: 0.5 }
+        )
+
+        GSAP.fromTo(
+          '.home__project__overview__links--github',
+          { autoAlpha: 0.3, ease: 'expo.in' },
+          { autoAlpha: 1, delay: 0.15, duration: 0.25 }
+        )
+
+        GSAP.fromTo(
+          '.badge',
+          { rotationX: -100 },
+          { rotationX: 0, duration: 0.3 }
+        )
       }
     }
   }

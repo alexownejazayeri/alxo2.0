@@ -12,8 +12,8 @@ const PROJECTS_MOCK = [
       github_url: 'https://www.github.com/my-example-project',
     },
     technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
+      frontend: ['javascript', 'typescript', 'react', 'next.js'],
+      backend: ['node.js', 'ChatGPT'],
     },
   },
   {
@@ -73,7 +73,7 @@ const PROJECTS_MOCK = [
     },
   },
   {
-    title: 'Project 6',
+    title: 'Moon Water',
     description:
       'Project 6: This is an awesome description about stuff. This project, for example is an incredible project.',
     image_url: 'https://picsum.photos/205/',

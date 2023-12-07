@@ -13,14 +13,28 @@
 
   justify-content: space-between;
   padding: 7.2rem 4.8rem 4.8rem 4.8rem;
+
+  @include media('>=desktop') {
+    padding: 7.2rem 4.8rem 10rem 4.8rem;
+  }
+
   z-index: z('content');
 }
 
 .home__projects__info {
-  margin-top: 4.7rem;
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
+  align-self: flex-end;
+
+  @include media('<desktop') {
+    margin-top: 3.4rem;
+    width: 48.5vw;
+  }
+
+  @include media('>=desktop') {
+    margin-top: 8.2rem;
+    width: 48.2vw;
+  }
 
   align-items: baseline;
 
@@ -31,6 +45,11 @@
 .home__projects__info--title {
   font-weight: 600;
   font-size: 7.2rem;
+  width: 31rem;
+
+  @include media('<desktop') {
+    font-size: 4.2rem;
+  }
 }
 
 .home__projects__info--line {
@@ -39,11 +58,19 @@
 }
 
 .home__projects__info--number {
-  font-size: 2.4rem;
   margin-right: 1.6rem;
 
-  width: 7.2rem;
-  height: 7.2rem;
+  @include media('<desktop') {
+    font-size: 2rem;
+    min-width: 5.2rem;
+    min-height: 5.2rem;
+  }
+
+  @include media('>=desktop') {
+    font-size: 2.4rem;
+    min-width: 7.2rem;
+    min-height: 7.2rem;
+  }
 
   text-align: center;
 
@@ -72,8 +99,6 @@
 }
 
 .home__projects__media--card1 {
-  @extend %smooth-bezier;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -90,15 +115,25 @@
     width: $main-card-width * 1.1;
   }
 
-  left: 37rem;
+  left: $main-card-left;
   position: absolute;
 
-  transition: z-index 50ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
+  transition: all 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01),
+    z-index 50ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
 
   background: #ebebeb;
   border-radius: 0.7rem;
   z-index: z('p1');
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.home__projects__media--card1:hover {
+  @include media('<desktop') {
+    transform: scale(1.05);
+  }
+
+  transform: scale(1.1);
+  box-shadow: -6px 8px 20px 0px rgba(0, 0, 0, 0.3);
 }
 
 .home__projects__media--card2 {
@@ -123,7 +158,7 @@
   transition: 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
 
   top: 1.5rem;
-  left: 32rem;
+  left: calc($main-card-left * 0.8);
 
   background: #ebebeb;
   border-radius: 0.7rem;
@@ -149,11 +184,10 @@
   }
 
   position: absolute;
-
   transition: 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
 
   top: 2.5rem;
-  left: 26rem;
+  left: calc($main-card-left * 0.7);
 
   background: #ebebeb;
   border-radius: 0.7rem;
@@ -182,7 +216,7 @@
   transition: 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
 
   top: 3.5rem;
-  left: 21rem;
+  left: calc($main-card-left * 0.6);
 
   background: #ebebeb;
   border-radius: 0.7rem;
@@ -212,7 +246,7 @@
   transition: z-index 100ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
   top: 4.5rem;
-  left: 16rem;
+  left: calc($main-card-left * 0.5);
 
   background: #ebebeb;
   border-radius: 0.7rem;
@@ -221,20 +255,30 @@
 }
 
 .home__projects__media--card6 {
+  @extend %smooth-bezier;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 10rem;
-  height: calc($main-card-height * 0.96 * 0.96 * 0.96 * 0.96 * 0.96);
-  width: $main-card-width * 0.96;
+
+  @include media('<desktop') {
+    height: calc($main-card-height * 0.96 * 0.96 * 0.96 * 0.96 * 0.96);
+    width: calc($main-card-width * 0.96);
+  }
+
+  @include media('>=desktop') {
+    height: calc($main-card-height * 1.1 * 0.96 * 0.96 * 0.96 * 0.96 * 0.96);
+    width: calc($main-card-width * 1.1 * 0.96);
+  }
+
+  transition: top 250ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
 
   position: absolute;
 
-  transition: 350ms cubic-bezier(0.62, 0.16, 0.13, 1.01);
-
   top: 5.5rem;
-  left: 11rem;
+  left: calc($main-card-left * 0.4);
 
   background: #ebebeb;
   border-radius: 0.7rem;
@@ -259,6 +303,11 @@
 
   max-width: 38.6rem;
 
+  @include media('>=desktop') {
+    max-width: 64rem;
+    padding-left: 10rem;
+  }
+
   text-align: left;
   z-index: inherit;
 }
@@ -268,16 +317,27 @@
   font-weight: 500;
 
   margin-bottom: 1rem;
+
+  @include media('>=desktop') {
+    font-size: 4.8rem;
+  }
 }
 
 .home__project__overview--description {
   margin-bottom: 1.2rem;
+  @include media('>=desktop') {
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
 }
 
 .home__project__overview__links--heading {
   font-size: 1.6rem;
   font-weight: 500;
 
+  @include media('>=desktop') {
+    font-size: 2.4rem;
+  }
   margin-bottom: 0.4rem;
 }
 
@@ -285,12 +345,21 @@
   display: flex;
   align-items: center;
 
+  @include media('>=desktop') {
+    font-size: 1.8rem;
+  }
+
   margin-bottom: 0.4rem;
 }
 
 .home__project__overview__links--url--icon {
   margin-right: 1rem;
   fill: #383838;
+
+  @include media('>=desktop') {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
 
 .home__project__overview__links--url--link {
@@ -304,11 +373,20 @@
 .home__project__overview__links--github {
   display: flex;
   align-items: center;
+
+  @include media('>=desktop') {
+    font-size: 1.8rem;
+  }
 }
 
 .home__project__overview__links--github--icon {
   margin-right: 1rem;
   fill: #383838;
+
+  @include media('>=desktop') {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
 
 .home__project__overview__links--url--link {
@@ -338,6 +416,10 @@
 .home__project__technologies__header--heading {
   font-size: 3.2rem;
   font-weight: 500;
+
+  @include media('>=desktop') {
+    font-size: 4.8rem;
+  }
 }
 
 .home__project__technologies__header--all--projects {
@@ -367,6 +449,10 @@
 
   border: 1px solid black;
   border-radius: 0.7rem;
+
+  @include media('>=desktop') {
+    height: 12.8rem;
+  }
 }
 
 .home__project__technologies--table tr:nth-child(1) {
@@ -393,6 +479,10 @@
 
   font-size: 1.4rem;
   font-weight: 500;
+
+  @include media('>=desktop') {
+    font-size: 1.8rem;
+  }
 
   min-width: 7.8rem;
   width: 7.8rem;
