@@ -30,13 +30,6 @@ app.get('*', (req, res) => {
   res.render('pages/404', {})
 })
 
-// TODO(alex): come back to projects
-// app.get('/projects', (req, res) => {
-//   console.log('rendering projects...')
-
-//   res.render('pages/projects', {})
-// })
-
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 })

@@ -11,7 +11,5 @@ export default class Contact extends Page {
     this.createContact()
   }
 
-  createContact() {
-    console.log('create contact!')
-  }
+  createContact() {}
 }

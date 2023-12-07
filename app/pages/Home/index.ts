@@ -5,21 +5,21 @@ const PROJECTS_MOCK = [
   {
     title: 'Koality',
     description:
-      'Project 1: Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
+      'Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
     image_url: 'https://picsum.photos/200',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
     },
     technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
+      frontend: ['javascript', 'typescript', 'react', 'next.js'],
+      backend: ['node.js', 'ChatGPT'],
     },
   },
   {
     title: 'Tinfur',
     description:
-      'Project 2: Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
+      'Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
     image_url: 'https://picsum.photos/201',
     project_links: {
       url: 'https://www.example.com',
@@ -33,7 +33,7 @@ const PROJECTS_MOCK = [
   {
     title: 'OP-1 Kenobi',
     description:
-      'Project 3: This is an awesome description about stuff. This project, for example is an incredible project.',
+      'This is an awesome description about stuff. This project, for example is an incredible project.',
     image_url: 'https://picsum.photos/202',
     project_links: {
       url: 'https://www.example.com',
@@ -47,7 +47,7 @@ const PROJECTS_MOCK = [
   {
     title: 'CODE-LE',
     description:
-      'Project 4: World clone for learning and practicing coding vocabulary and concepts built with React.',
+      'World clone for learning and practicing coding vocabulary and concepts built with React.',
     image_url: 'https://picsum.photos/203',
     project_links: {
       url: 'https://www.example.com',
@@ -61,7 +61,7 @@ const PROJECTS_MOCK = [
   {
     title: 'LiveOrder',
     description:
-      "Project 5: Aloompa's ticketing product used by Outside Lands. Worked out an optimized data model for the backend and built both web and mobile views using Next.js",
+      'Ticketing product used by Outside Lands. Built core ticketing features using AWS AppSync and Next.js.',
     image_url: 'https://picsum.photos/204',
     project_links: {
       url: 'https://www.example.com',
@@ -73,9 +73,9 @@ const PROJECTS_MOCK = [
     },
   },
   {
-    title: 'Project 6',
+    title: 'Moon Water',
     description:
-      'Project 6: This is an awesome description about stuff. This project, for example is an incredible project.',
+      'This is an awesome description about stuff. This project, for example is an incredible project.',
     image_url: 'https://picsum.photos/205/',
     project_links: {
       url: 'https://www.example.com',

@@ -820,6 +820,7 @@ __metadata:
     favicons-webpack-plugin: ^6.0.0
     glslify-loader: ^2.0.0
     gsap: ^3.12.2
+    include-media: ^2.0.0
     mini-css-extract-plugin: ^2.7.6
     nodemon: ^3.0.1
     normalize-wheel: ^1.0.1
@@ -2894,6 +2895,13 @@ __metadata:
   version: 0.1.4
   resolution: "imurmurhash@npm:0.1.4"
   checksum: 7cae75c8cd9a50f57dadd77482359f659eaebac0319dd9368bcd1714f55e65badd6929ca58569da2b6494ef13fdd5598cd700b1eba23f8b79c5f19d195a3ecf7
+  languageName: node
+  linkType: hard
+
+"include-media@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "include-media@npm:2.0.0"
+  checksum: 4f28ff0addab4d07a809d3e61a6751d7c8e022af66866cf29684b1401c725bd73d2dd224aaa08f32a3cdd9c948766a8aa0d05866ed9acb2d6d0141f33d3af37c
   languageName: node
   linkType: hard
 

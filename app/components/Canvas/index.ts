@@ -77,6 +77,7 @@ export default class Canvas {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.camera.perspective({
       aspect: window.innerWidth / window.innerHeight,
+      fov: window.innerWidth <= 1368 ? 40 : 35,
     })
 
     if (!this.home && this.template === 'home') {

@@ -99,11 +99,11 @@ export class Navigation {
       GSAP.fromTo(
         '.topnav__link__icon',
         {
-          duration: 1,
           rotation: 0,
         },
         {
-          duration: 1,
+          duration: 0.5,
+          delay: 0.2,
           rotation: 180,
         }
       )
@@ -111,13 +111,13 @@ export class Navigation {
 
     if (this.isExpanded) {
       GSAP.fromTo(
-        this.hamburger,
+        '.topnav__link__icon',
         {
-          duration: 1,
           rotation: 0,
         },
         {
-          duration: 1,
+          duration: 0.5,
+          delay: 0.2,
           rotation: 180,
         }
       )
@@ -134,7 +134,6 @@ export class Navigation {
       GSAP.fromTo(
         '.topnav__link__icon',
         {
-          duration: 1,
           rotation: 180,
         },
         {
@@ -146,14 +145,13 @@ export class Navigation {
 
     if (this.isExpanded) {
       GSAP.fromTo(
-        this.hamburger,
+        '.topnav__link__icon',
         {
-          duration: 1,
-          rotation: 0,
+          rotation: 180,
         },
         {
           duration: 1,
-          rotation: 180,
+          rotation: 0,
         }
       )
     }

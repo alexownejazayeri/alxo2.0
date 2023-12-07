@@ -17,6 +17,7 @@
     "favicons": "^7.1.4",
     "favicons-webpack-plugin": "^6.0.0",
     "glslify-loader": "^2.0.0",
+    "include-media": "^2.0.0",
     "mini-css-extract-plugin": "^2.7.6",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.27",
