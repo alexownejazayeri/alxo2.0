@@ -65,6 +65,9 @@ export default class Canvas {
   }
 
   createCamera() {
+    // Use detection to set the camera @ differing fov
+    // depending on the screen resolution
+    // TODO(alex): add a 'Detection' singleton for use here
     this.camera = new Camera(this.gl, { fov: 35 })
     this.camera.position.z = 25
   }
@@ -77,6 +80,7 @@ export default class Canvas {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.camera.perspective({
       aspect: window.innerWidth / window.innerHeight,
+      fov: window.innerWidth <= 1368 ? 40 : 35,
     })
 
     if (!this.home && this.template === 'home') {
