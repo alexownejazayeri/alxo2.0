@@ -7,11 +7,9 @@
 
 .contact__wrapper {
   @extend %cover;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: 7.2rem 4.8rem 4.8rem 4.8rem;
   z-index: z('content');
 }
@@ -20,8 +18,15 @@
   display: flex;
   justify-content: flex-end;
 
-  margin-top: 4.8rem;
-  font-size: 25.6rem;
+  margin-top: 7.2rem;
+
+  @include media('<desktop') {
+    font-size: 18rem;
+  }
+
+  @include media('>=desktop') {
+    font-size: 25.6rem;
+  }
 }
 
 .contact__heading span:nth-child(1) {
@@ -41,9 +46,16 @@
 }
 
 .contact__cta {
-  height: 42rem;
   display: flex;
   align-items: flex-end;
+
+  @include media('<desktop') {
+    height: 30rem;
+  }
+
+  @include media('>=desktop') {
+    height: 42rem;
+  }
 }
 
 .contact__cta__text__bar {
@@ -58,6 +70,14 @@
   font-size: 12.8rem;
   display: flex;
   flex-direction: column;
+
+  @include media('<desktop') {
+    font-size: 8rem;
+  }
+
+  @include media('>=desktop') {
+    font-size: 12.8rem;
+  }
 }
 
 .contact__cta__text--line2 {
@@ -79,7 +99,7 @@
 }
 
 .email__cta__link {
-  font-size: 2.4rem;
+  @extend %smooth-bezier;
   color: #2d173e;
   background: #cc8bff;
 
@@ -90,9 +110,28 @@
 
   height: 14.8rem;
   width: 14.8rem;
+
+  @include media('<desktop') {
+    font-size: 1.8rem;
+    height: 10rem;
+    width: 10rem;
+  }
+
+  @include media('>=desktop') {
+    font-size: 2.4rem;
+    height: 14.8rem;
+    width: 14.8rem;
+  }
+}
+
+.email__cta__link:hover,
+.email__cta__link:active {
+  background: #bf6cff;
+  transform: scale(1.2);
 }
 
 .linkedin__cta__link {
+  @extend %smooth-bezier;
   font-size: 2.4rem;
   color: #053848;
 
@@ -101,7 +140,23 @@
   align-items: center;
   border-radius: 50%;
 
-  height: 14.8rem;
-  width: 14.8rem;
   background: #c5f1ff;
+
+  @include media('<desktop') {
+    font-size: 1.8rem;
+    height: 10rem;
+    width: 10rem;
+  }
+
+  @include media('>=desktop') {
+    font-size: 2.4rem;
+    height: 14.8rem;
+    width: 14.8rem;
+  }
+}
+
+.linkedin__cta__link:hover,
+.linkedin__cta__link:active {
+  background: #6adcff;
+  transform: scale(1.2);
 }
