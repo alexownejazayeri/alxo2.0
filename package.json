@@ -1,6 +1,6 @@
 {
-  "name": "alxoilerplate",
-  "version": "1.0.0",
+  "name": "alxo",
+  "version": "1.0.0-beta",
   "packageManager": "yarn@3.6.0",
   "main": "app.js",
   "scripts": {

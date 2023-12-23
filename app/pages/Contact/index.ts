@@ -17,11 +17,13 @@ export default class Contact extends Page {
   createContact() {
     this.hello = document.querySelector('.contact__heading')?.children[2]
 
-    GSAP.from(this.hello, {
-      duration: 1,
-      x: 500,
-      opacity: 0,
-      textTransform: 'none',
-    })
+    if (this.hello) {
+      GSAP.from(this.hello, {
+        duration: 1,
+        x: 500,
+        autoAlpha: 0,
+        textTransform: 'none',
+      })
+    }
   }
 }
