@@ -43,6 +43,11 @@ export class Navigation {
         transformOrigin: '50% 50%',
       })
 
+      GSAP.to('.topnav__link__icon--line2', {
+        duration: 0.5,
+        autoAlpha: 0,
+      })
+
       GSAP.to('.topnav__link__icon--line3', {
         duration: 0.5,
         rotationZ: -45,
@@ -78,6 +83,11 @@ export class Navigation {
         transformOrigin: '50% 50%',
       })
 
+      GSAP.to('.topnav__link__icon--line2', {
+        duration: 0.5,
+        autoAlpha: 1,
+      })
+
       GSAP.to('.topnav__link__icon--line3', {
         duration: 0.5,
         rotationZ: 0,
@@ -93,7 +103,7 @@ export class Navigation {
     if (!this.isExpanded) {
       GSAP.to('.topnav__link__icon--line2', {
         duration: 0.5,
-        alpha: 0,
+        autoAlpha: 0,
       })
 
       GSAP.fromTo(

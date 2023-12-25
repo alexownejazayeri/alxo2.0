@@ -14,7 +14,9 @@
 
   background-color: #232323;
   height: 7.2rem;
-  border-radius: 0 0 1.3rem 1.3rem;
+
+  // TODO(alex): sort out mobile detection for border radius
+  // border-radius: 0 0 1.3rem 1.3rem;
 
   @include media('>=desktop') {
     padding: 3.2rem 4.8rem;
@@ -27,7 +29,6 @@
   @include media('<=phone') {
     padding: 1.2rem;
     height: 5.6rem;
-    border-radius: 0;
   }
 }
 
