@@ -41,6 +41,7 @@
     "gsap": "^3.12.2",
     "normalize-wheel": "^1.0.1",
     "ogl-typescript": "^0.1.40",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "ua-parser-js": "^1.0.37"
   }
 }

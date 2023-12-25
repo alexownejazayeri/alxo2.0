@@ -39,8 +39,8 @@ strong {
   margin-bottom: 3.6rem;
   line-height: 1.2;
 
-  @include media('<desktop') {
-    font-size: 1.4rem;
+  @include media('<desktop && >=tablet') {
+    font-size: 45rem;
   }
 
   @include media('>=desktop') {

@@ -6,24 +6,22 @@
 }
 
 .topnav__container {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
 
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: #232323;
   height: 7.2rem;
 
   padding: 3.2rem 4.8rem;
-
   border-radius: 0 0 1.3rem 1.3rem;
 }
 
 .topnav__brand {
   display: flex;
-
   align-items: center;
-  justify-self: flex-start;
 }
 
 .topnav__brand__icon {
@@ -31,16 +29,31 @@
   margin-right: 1.3rem;
 }
 
+.topnav__brand__logo {
+  font-family: $font-eckmannpsych;
+  font-size: 4.8rem;
+
+  margin-right: 1.2rem;
+}
+.topnav__brand__logo span {
+  vertical-align: super;
+}
+
 .topnav__brand__description {
   display: flex;
   flex-direction: column;
+
+  min-width: 25.6rem;
 }
 
-.topnav__link {
+.topnav__hamburger {
+  position: absolute;
+  left: calc(100vw / 2);
 }
 
 .topnav__location {
   justify-self: flex-end;
 
   font-size: 1.8rem;
+  min-width: fit-content;
 }
