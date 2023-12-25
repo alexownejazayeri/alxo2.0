@@ -14,9 +14,21 @@
 
   background-color: #232323;
   height: 7.2rem;
-
-  padding: 3.2rem 4.8rem;
   border-radius: 0 0 1.3rem 1.3rem;
+
+  @include media('>=desktop') {
+    padding: 3.2rem 4.8rem;
+  }
+
+  @include media('<desktop') {
+    padding: 3.2rem 2.8rem;
+  }
+
+  @include media('<=phone') {
+    padding: 1.2rem;
+    height: 5.6rem;
+    border-radius: 0;
+  }
 }
 
 .topnav__brand {
@@ -31,9 +43,15 @@
 
 .topnav__brand__logo {
   font-family: $font-eckmannpsych;
-  font-size: 4.8rem;
-
   margin-right: 1.2rem;
+
+  @include media('>=tablet') {
+    font-size: 4.8rem;
+  }
+
+  @include media('<tablet') {
+    font-size: 3.2rem;
+  }
 }
 .topnav__brand__logo span {
   vertical-align: super;
@@ -48,7 +66,7 @@
 
 .topnav__hamburger {
   position: absolute;
-  left: calc(100vw / 2);
+  left: calc(100vw / 2 - 2.6rem);
 }
 
 .topnav__location {
