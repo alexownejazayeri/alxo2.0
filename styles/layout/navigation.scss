@@ -19,13 +19,21 @@
 }
 
 .navigation__link {
-  font-size: 16.4rem;
   margin-bottom: 4.2rem;
+
+  @include media('>=tablet') {
+    font-size: 16.4rem;
+  }
+
+  @include media('<tablet') {
+    font-size: 5.6rem;
+    font-weight: 500;
+    margin-bottom: 6.4rem;
+  }
 }
 
 .navigation__link:hover {
-  font-size: 16.4rem;
-  margin-bottom: 4.2rem;
-
-  text-decoration: underline;
+  @include media('>=tablet') {
+    text-decoration: underline;
+  }
 }
