@@ -7,24 +7,36 @@ block content
   .contact()
     .contact__wrapper
       .contact__heading
-        span 👋
-        span Say
-        span hello
-        span .
+        if !device.isMobile
+          span 👋
+          span Say
+          span hello
+          span .
+        if device.isMobile
+          span Say
+          span
+            p 👋
+            p.special__boi hello.
+          .contact__divider
       .contact__cta
         svg.contact__cta__text__bar(width="8" height="100%" viewBox="0 0 8 410" fill="none" xmlns="http://www.w3.org/2000/svg")
           path(d="M4 406.005L4 3.99989" stroke="black" stroke-width="7" stroke-linecap="round")
         .contact__cta__text__container
-          .contact__cta__text--line1
-            span It's easy -
-          .contact__cta__text--line2
-            span Email here
-            svg.contact__cta__text--arrow(width="128" height="52" viewBox="0 0 128 52" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M4 22.502C2.067 22.502 0.5 24.069 0.5 26.002C0.5 27.9349 2.067 29.502 4 29.502V22.502ZM126.479 28.4768C127.846 27.11 127.846 24.8939 126.479 23.5271L104.205 1.25322C102.838 -0.113619 100.622 -0.113619 99.2553 1.25322C97.8885 2.62005 97.8885 4.83613 99.2553 6.20296L119.054 26.002L99.2553 45.8009C97.8885 47.1678 97.8885 49.3839 99.2553 50.7507C100.622 52.1175 102.838 52.1175 104.205 50.7507L126.479 28.4768ZM4 29.502H124.004V22.502H4V29.502Z" fill="currentColor")
-            a.email__cta__link(href="mailto:alirezaownejazayeri@gmail.com") EMAIL
-
-          .contact__cta__text--line3
-            span Or message there
-            svg.contact__cta__text--arrow(width="128" height="52" viewBox="0 0 128 52" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M4 22.502C2.067 22.502 0.5 24.069 0.5 26.002C0.5 27.9349 2.067 29.502 4 29.502V22.502ZM126.479 28.4768C127.846 27.11 127.846 24.8939 126.479 23.5271L104.205 1.25322C102.838 -0.113619 100.622 -0.113619 99.2553 1.25322C97.8885 2.62005 97.8885 4.83613 99.2553 6.20296L119.054 26.002L99.2553 45.8009C97.8885 47.1678 97.8885 49.3839 99.2553 50.7507C100.622 52.1175 102.838 52.1175 104.205 50.7507L126.479 28.4768ZM4 29.502H124.004V22.502H4V29.502Z" fill="currentColor")
-            a.linkedin__cta__link(href="https://www.linkedin.com/in/alxo/" target="_blank") LINKEDIN
+          if device.isMobile
+            .contact__cta__text--line1
+              span Message me here
+              a.linkedin__cta__link(href="https://www.linkedin.com/in/alxo/" target="_blank") LINKEDIN
+            .contact__cta__text--line2
+              span Or email me there
+              a.email__cta__link(href="mailto:alirezaownejazayeri@gmail.com") EMAIL
+          else
+            .contact__cta__text--line1
+              span It's easy -
+            .contact__cta__text--line2
+              span Email here
+              include ../partials/cta-arrow-icon.pug
+              a.email__cta__link(href="mailto:alirezaownejazayeri@gmail.com") EMAIL
+            .contact__cta__text--line3
+              span Or message there
+              include ../partials/cta-arrow-icon.pug
+              a.linkedin__cta__link(href="https://www.linkedin.com/in/alxo/" target="_blank") LINKEDIN
