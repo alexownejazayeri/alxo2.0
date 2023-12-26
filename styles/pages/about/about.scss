@@ -2,16 +2,6 @@ strong {
   font-weight: 500;
 }
 
-.about__content__profesh a:link,
-.about__content__profesh a:visited {
-  color: blue;
-}
-
-.about__content__profesh a:hover,
-.about__content__profesh a:active {
-  color: darkblue;
-}
-
 .about {
   @extend %center;
   @extend %page;
@@ -32,7 +22,6 @@ strong {
 
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .about__content__wrapper {
@@ -40,16 +29,29 @@ strong {
 }
 
 .about__content__profesh {
-  margin-bottom: 2.4rem;
-  line-height: 1.2;
-
-  @include media('<desktop && >=tablet') {
-    font-size: 45rem;
-  }
+  line-height: 1.3;
 
   @include media('>=desktop') {
     font-size: 1.8rem;
   }
+
+  @include media('<desktop') {
+    font-size: 1.6rem;
+  }
+
+  @include media('<tablet') {
+    font-size: 1.2rem;
+  }
+}
+
+.about__content__profesh a:link,
+.about__content__profesh a:visited {
+  color: blue;
+}
+
+.about__content__profesh a:hover,
+.about__content__profesh a:active {
+  color: darkblue;
 }
 
 .about__content__profesh h2 {
@@ -105,61 +107,17 @@ strong {
 }
 
 .about__content__personal {
-  line-height: 1.2;
-
-  @include media('<desktop') {
-    font-size: 1.4rem;
-  }
+  line-height: 1.3;
 
   @include media('>=desktop') {
     font-size: 1.8rem;
   }
-}
-
-.about__content__personal h2 {
-  font-weight: 500;
-  margin-bottom: 1.2rem;
-
-  @include media('>=desktop') {
-    font-size: 3.2rem;
-  }
 
   @include media('<desktop') {
-    font-size: 2.8rem;
+    font-size: 1.6rem;
   }
 
-  @include media('<=tablet') {
-    font-size: 2.4rem;
-    margin-bottom: 1.2rem;
+  @include media('<tablet') {
+    font-size: 1.2rem;
   }
-}
-
-.about__cta {
-  display: flex;
-  align-items: center;
-
-  margin-left: 6.4rem;
-}
-
-.about__cta--text {
-  font-size: 3.2rem;
-  width: 40rem;
-}
-
-.about__cta--arrow {
-  margin-right: 2.4rem;
-}
-
-.about__cta--link {
-  font-size: 2.4rem;
-  color: #053848;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-
-  height: 14.8rem;
-  width: 14.8rem;
-  background: #c5f1ff;
 }
