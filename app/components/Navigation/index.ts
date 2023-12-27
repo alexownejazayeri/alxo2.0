@@ -70,11 +70,13 @@ export class Navigation {
         y: 0,
       })
 
-      GSAP.to(this.container, {
-        duration: 0.5,
-        borderBottomLeftRadius: '1.3rem',
-        borderBottomRightRadius: '1.3rem',
-      })
+      if (window.innerWidth > 800) {
+        GSAP.to(this.container, {
+          duration: 0.5,
+          borderBottomLeftRadius: '1.3rem',
+          borderBottomRightRadius: '1.3rem',
+        })
+      }
 
       GSAP.to('.topnav__link__icon--line1', {
         duration: 0.5,

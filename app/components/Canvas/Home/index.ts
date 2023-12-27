@@ -38,6 +38,10 @@ export default class {
   scene: Transform
   target: RenderTarget
   scroller: { el: Element | null; rotation: number }
+  progressBar: any
+  slorbieblorbie: any
+  mobileProgress: any
+  tempProgressIndicator: any
 
   constructor({ camera, gl, renderer, scene }) {
     this.camera = camera
@@ -59,6 +63,28 @@ export default class {
       x: 0,
       z: 0,
     }
+
+    this.mobileProgress = {
+      total: window.innerHeight * 3.5 * 3,
+      completed: 0,
+    }
+
+    this.tempProgressIndicator = document.querySelector(
+      '.temp__progress__indicator'
+    )
+
+    this.scroller = {
+      el: document.querySelector('.home__mobile__scroll__indicator'),
+      rotation: 0,
+    }
+
+    this.progressBar = document.querySelector(
+      '.home__mobile__progress__indicator'
+    )
+
+    this.slorbieblorbie = document.querySelector(
+      '.home__mobile__blob__container'
+    )
 
     this.createProgram()
     this.createGeometry()
@@ -128,11 +154,6 @@ export default class {
         id: { instanced: 1, size: 4, data: idData },
       },
     })
-
-    this.scroller = {
-      el: document.querySelector('.home__mobile__scroll__indicator'),
-      rotation: 0,
-    }
   }
 
   createMesh() {
@@ -171,8 +192,12 @@ export default class {
   }
 
   onTouchDown(event: MouseEvent | TouchEvent) {
-    // TODO(alex): decide what to do here?
-    // this.pause = true
+    this.pause = true
+
+    if (event instanceof TouchEvent) {
+      this.cursorPosition.x = event.touches[0].clientX
+      this.cursorPosition.y = event.touches[0].clientY
+    }
   }
 
   onTouchMove(event: MouseEvent | TouchEvent) {
@@ -197,11 +222,24 @@ export default class {
           : Math.abs(event.x - this.cursorPosition.x) / 100000
     }
 
-    if (event instanceof TouchEvent) {
-      this.scroller.rotation += this.cursorPosition.y - event.touches[0].clientY
+    if (event instanceof TouchEvent && this.scroller?.el) {
+      const scrollDiff = this.cursorPosition.y - event.touches[0].clientY
+      this.scroller.rotation += scrollDiff
 
       this.cursorPosition.x = event.touches[0].clientX
       this.cursorPosition.y = event.touches[0].clientY
+
+      console.log({ prog: this.mobileProgress })
+
+      if (
+        this.mobileProgress.completed >= 0 &&
+        this.mobileProgress.completed + scrollDiff >= 0 &&
+        this.mobileProgress.completed + scrollDiff < this.mobileProgress.total
+      ) {
+        this.mobileProgress.completed += scrollDiff
+      } else if (this.mobileProgress.completed + scrollDiff < 0) {
+        this.mobileProgress.completed = 0
+      }
     }
   }
 
@@ -225,15 +263,25 @@ export default class {
   update() {
     if (!this.mesh) return
 
-    if (this.scroller) {
-      gsap.to(this.scroller.el, {
+    if (this.slorbieblorbie) {
+      gsap.to(this.slorbieblorbie, {
         rotateZ: this.scroller.rotation,
       })
 
-      console.log({ mouse: this.mouse, cp: this.cursorPosition })
+      this.tempProgressIndicator.textContent = `${Math.ceil(
+        (this.mobileProgress.completed / this.mobileProgress.total) * 100
+      )}%`
     }
 
-    // this.scroller.rotation += 0.2
+    if (this.scroller?.el) {
+      gsap.to(this.scroller.el, {
+        rotateZ: this.scroller.rotation,
+      })
+    }
+
+    if (!this.pause) {
+      this.scroller.rotation += 0.1
+    }
 
     const data = new Uint8Array(4)
 

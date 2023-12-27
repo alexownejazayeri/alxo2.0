@@ -516,6 +516,16 @@
   align-items: center;
 }
 
+.home__mobile__progress__indicator {
+  position: absolute;
+  left: 0;
+  top: 5.6rem;
+
+  height: 0.6rem;
+  width: 100vw;
+  background: #e6c5ff;
+}
+
 .home__mobile__professional__info {
   display: flex;
   flex-direction: column;
@@ -544,4 +554,12 @@
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+}
+
+.temp__progress__indicator {
+  position: absolute;
+  right: calc(100vw / 2 - 3.6rem);
+  bottom: calc(100vw / 2 + 3.6rem);
+  font-size: 3.6rem;
+  text-align: center;
 }
