@@ -1,3 +1,4 @@
+import gsap from 'gsap'
 import Page from '../../classes/Page'
 import ProjectShowcase from '../../components/ProjectShowcase'
 

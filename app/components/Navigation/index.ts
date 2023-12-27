@@ -138,7 +138,7 @@ export class Navigation {
     if (!this.isExpanded) {
       GSAP.to('.topnav__link__icon--line2', {
         duration: 0.5,
-        alpha: 1,
+        autoAlpha: 1,
       })
 
       GSAP.fromTo(

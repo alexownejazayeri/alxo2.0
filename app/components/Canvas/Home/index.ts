@@ -1,3 +1,4 @@
+import gsap from 'gsap'
 import {
   Camera,
   Mesh,
@@ -36,6 +37,7 @@ export default class {
   renderer: Renderer
   scene: Transform
   target: RenderTarget
+  scroller: { el: Element | null; rotation: number }
 
   constructor({ camera, gl, renderer, scene }) {
     this.camera = camera
@@ -126,6 +128,11 @@ export default class {
         id: { instanced: 1, size: 4, data: idData },
       },
     })
+
+    this.scroller = {
+      el: document.querySelector('.home__mobile__scroll__indicator'),
+      rotation: 0,
+    }
   }
 
   createMesh() {
@@ -189,6 +196,13 @@ export default class {
           ? -(Math.abs(this.cursorPosition.x - event.x) / 100000)
           : Math.abs(event.x - this.cursorPosition.x) / 100000
     }
+
+    if (event instanceof TouchEvent) {
+      this.scroller.rotation += this.cursorPosition.y - event.touches[0].clientY
+
+      this.cursorPosition.x = event.touches[0].clientX
+      this.cursorPosition.y = event.touches[0].clientY
+    }
   }
 
   onTouchUp(event: MouseEvent | TouchEvent) {
@@ -210,6 +224,16 @@ export default class {
 
   update() {
     if (!this.mesh) return
+
+    if (this.scroller) {
+      gsap.to(this.scroller.el, {
+        rotateZ: this.scroller.rotation,
+      })
+
+      console.log({ mouse: this.mouse, cp: this.cursorPosition })
+    }
+
+    // this.scroller.rotation += 0.2
 
     const data = new Uint8Array(4)
 

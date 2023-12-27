@@ -6,48 +6,60 @@ block variables
 block content
   .home()
     .home__wrapper
-      .home__projects__info
-        .home__projects__info--title Koality
-        svg.home__projects__info--line(width="563" height="2" viewBox="0 0 563 2" fill="none" xmlns="http://www.w3.org/2000/svg")
-          path(d="M1 1H562" stroke="black" stroke-width="2" stroke-linecap="round")
-        .home__projects__info--number
-      .home__projects__media
-        .home__projects__media--card1#p1 1
-        .home__projects__media--card2#p2 2
-        .home__projects__media--card3#p3 3
-        .home__projects__media--card4#p4 4
-        .home__projects__media--card5#p5 5
-        .home__projects__media--card6#p6 6
+      if !device.isMobile
+        .home__projects__info
+          .home__projects__info--title Koality
+          include ../partials/info-line.pug
+          .home__projects__info--number
+        .home__projects__media
+          .home__projects__media--card1#p1 1
+          .home__projects__media--card2#p2 2
+          .home__projects__media--card3#p3 3
+          .home__projects__media--card4#p4 4
+          .home__projects__media--card5#p5 5
+          .home__projects__media--card6#p6 6
+        .home__project__details
+          .home__project__overview
+            .home__project__overview--heading Overview
+            .home__project__overview--description
+            .home__project__overview__links--heading Project Links
+            .home__project__overview__links--url
+              include ../partials/url-icon.pug
+              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.example.com
 
-      .home__project__details
-        .home__project__overview
-          .home__project__overview--heading Overview
-          .home__project__overview--description
-          .home__project__overview__links--heading Project Links
-          .home__project__overview__links--url
-            svg.home__project__overview__links--url--icon(width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M1.925 4C1.925 2.7175 2.9675 1.675 4.25 1.675H7.25V0.25H4.25C2.18 0.25 0.5 1.93 0.5 4C0.5 6.07 2.18 7.75 4.25 7.75H7.25V6.325H4.25C2.9675 6.325 1.925 5.2825 1.925 4ZM5 4.75H11V3.25H5V4.75ZM11.75 0.25H8.75V1.675H11.75C13.0325 1.675 14.075 2.7175 14.075 4C14.075 5.2825 13.0325 6.325 11.75 6.325H8.75V7.75H11.75C13.82 7.75 15.5 6.07 15.5 4C15.5 1.93 13.82 0.25 11.75 0.25Z" )
-            a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.example.com
+            .home__project__overview__links--github
+              include ../partials/github-icon.pug
+              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.github.com/project-url
 
-          .home__project__overview__links--github
-            svg.home__project__overview__links--github--icon(width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M7.99999 0.846614C6.2498 0.834418 4.55296 1.44859 3.21603 2.57817C1.87911 3.70776 0.990278 5.27825 0.710116 7.00591C0.429954 8.73358 0.776942 10.5045 1.68839 11.9987C2.59984 13.4928 4.01563 14.6118 5.67999 15.1533C6.04665 15.2133 6.16665 14.9666 6.16665 14.7866V13.5599C4.14665 13.9866 3.71999 12.5866 3.71999 12.5866C3.35332 11.7266 2.86665 11.4866 2.86665 11.4866C2.25332 11.0533 2.93332 11.0533 2.93332 11.0533C3.66665 11.0533 4.08665 11.7866 4.08665 11.7866C4.69999 12.8866 5.79999 12.5866 6.22665 12.3999C6.22633 12.216 6.26406 12.034 6.33749 11.8653C6.41092 11.6967 6.51845 11.545 6.65332 11.4199C5.00665 11.2399 3.29332 10.6266 3.29332 7.75328C3.29332 7.01995 3.59999 6.35328 4.09332 5.85995C3.96259 5.55093 3.89522 5.21881 3.89522 4.88328C3.89522 4.54775 3.96259 4.21563 4.09332 3.90661C4.09332 3.90661 4.69999 3.71995 6.16665 4.63995C7.36665 4.31328 8.63332 4.31328 9.83332 4.63995C11.2333 3.71995 11.8467 3.90661 11.8467 3.90661C11.9774 4.21563 12.0447 4.54775 12.0447 4.88328C12.0447 5.21881 11.9774 5.55093 11.8467 5.85995C12.4 6.35328 12.6467 7.01995 12.6467 7.81995C12.6467 10.6266 10.9333 11.2399 9.28665 11.4199C9.58665 11.6666 9.83332 12.0333 9.83332 12.7666V14.7866C9.83332 14.9666 9.89999 15.2133 10.32 15.1533C11.9843 14.6118 13.4001 13.4928 14.3116 11.9987C15.223 10.5045 15.57 8.73358 15.2899 7.00591C15.0097 5.27825 14.1209 3.70776 12.7839 2.57817C11.447 1.44859 9.75018 0.834418 7.99999 0.846614Z")
-            a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.github.com/project-url
-
-        .home__project__technologies
-          .home__project__technologies__header
-            .home__project__technologies__header--heading Technologies
-          table.home__project__technologies--table
-            tr.home__project__technologies--table--row
-              td Frontend
-              td.badge TypeScript
-              td.badge JavaScript
-              td.badge WebGL
-              td
-            tr.home__project__technologies--table--row
-              td Backend
-              td.badge TypeScript
-              td.badge JavaScript
-              td.badge AWS Lambda
-              td.badge DynamoDB
-              td
+          .home__project__technologies
+            .home__project__technologies__header
+              .home__project__technologies__header--heading Technologies
+            table.home__project__technologies--table
+              tr.home__project__technologies--table--row
+                td Frontend
+                td.badge TypeScript
+                td.badge JavaScript
+                td.badge WebGL
+                td
+              tr.home__project__technologies--table--row
+                td Backend
+                td.badge TypeScript
+                td.badge JavaScript
+                td.badge AWS Lambda
+                td.badge DynamoDB
+                td
+      if device.isMobile
+        .home__mobile__professional__info
+          .home__mobile__professional__info--title Full Stack Developer
+          .home__mobile__professional__info--skills JavaScript | TypeScript | GraphQL | AWS
+          .home__mobile__blob__container
+            svg(width="390" height="515" viewBox="0 0 390 515" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.c1(d="M239.499 190.902C280.561 235.774 296.072 224.227 266.41 300.92C243.667 339.529 195.749 353.463 157.14 330.72C89.3177 298.935 105.667 258.241 128.41 219.632C156.498 171.948 200.889 168.16 239.499 190.902Z" fill="#E6C5FF")
+              path(fill-rule="evenodd" clip-rule="evenodd" d="M105.917 343.366C82.925 327.592 67.8958 317.282 69.0969 273.795C70.7515 213.884 104.727 166.437 127.812 153.064C131.417 150.976 134.456 149.008 137.217 147.219C152.138 137.552 158.958 133.134 203.229 143.446C255.694 155.666 327.924 182.122 329.491 206.45C329.621 208.454 329.753 210.31 329.877 212.053C331.264 231.48 331.656 236.968 315.287 277.605C310.09 290.508 306.087 301.803 302.592 311.665C294.091 335.651 288.59 351.172 276.199 360.797C258.712 374.379 206.685 385.211 206.685 385.211C206.685 385.211 173.265 400.663 134.929 365.656C124.419 356.059 114.6 349.323 105.917 343.366ZM126.732 323.767C108.98 311.59 97.3759 303.629 98.311 270.044C99.5991 223.775 126.254 183.298 144.083 172.966C145.272 172.277 146.383 171.622 147.435 171.003C162.155 162.332 165.101 160.597 202.913 169.397C243.425 178.825 290.964 199.51 292.17 218.298C292.423 222.246 292.815 225.188 293.149 227.69C294.402 237.094 294.827 240.28 283.941 267.295C278.242 281.439 275.168 294.045 272.569 304.708C268.881 319.831 266.147 331.046 258.226 337.2C244.72 347.692 204.541 356.067 204.541 356.067C204.541 356.067 178.731 368.007 149.132 340.977C141.018 333.567 133.437 328.366 126.732 323.767Z" fill="#E6C5FF")
+              path(fill-rule="evenodd" clip-rule="evenodd" d="M70.4773 382.304C37.2197 359.487 15.4801 344.573 17.2174 281.67C19.6108 195.01 68.7567 126.377 102.149 107.034C107.363 104.013 111.758 101.166 115.752 98.5783C137.336 84.5956 147.2 78.2052 211.239 93.1211C287.129 110.797 391.61 149.066 393.877 184.256C394.063 187.154 394.255 189.839 394.435 192.361C396.44 220.461 397.007 228.401 373.331 287.181C365.812 305.846 360.023 322.183 354.966 336.45C342.67 371.144 334.713 393.596 316.789 407.518C291.495 427.164 216.238 442.833 216.238 442.833C216.238 442.833 167.896 465.185 112.443 414.546C97.2408 400.664 83.0376 390.921 70.4773 382.304ZM99.7013 352.976C73.8025 335.208 56.8732 323.594 58.2231 274.612C60.0827 207.132 98.9456 148.109 124.947 133.048C126.68 132.044 128.301 131.09 129.834 130.187C151.303 117.547 155.599 115.018 210.756 127.867C269.852 141.635 339.201 171.822 340.968 199.224C341.339 204.982 341.913 209.273 342.4 212.923C344.232 226.638 344.853 231.284 328.986 270.681C320.679 291.306 316.201 309.69 312.413 325.24C307.041 347.295 303.057 363.65 291.506 372.622C271.81 387.919 213.208 400.116 213.208 400.116C213.208 400.116 175.565 417.519 132.381 378.085C120.543 367.275 109.482 359.687 99.7013 352.976Z" fill="#E6C5FF")
+        //- .home__mobile__testimonials
+        //-   .home__mobile__testimonials--testimonial-a
+        //-   .home__mobile__testimonials--testimonial-b
+        //-   .home__mobile__testimonials--testimonial-c
+        .home__mobile__scroll__indicator
+          include ../partials/scroll.pug
