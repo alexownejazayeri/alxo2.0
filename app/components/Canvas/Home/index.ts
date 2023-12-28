@@ -41,7 +41,9 @@ export default class {
   progressBar: any
   slorbieblorbie: any
   mobileProgress: any
-  tempProgressIndicator: any
+  fullStack: any
+  title: any
+  skills: any
 
   constructor({ camera, gl, renderer, scene }) {
     this.camera = camera
@@ -65,13 +67,9 @@ export default class {
     }
 
     this.mobileProgress = {
-      total: window.innerHeight * 3.5 * 3,
+      total: window.innerHeight * 3.5 * 3, // TODO: magic #, move to constant
       completed: 0,
     }
-
-    this.tempProgressIndicator = document.querySelector(
-      '.temp__progress__indicator'
-    )
 
     this.scroller = {
       el: document.querySelector('.home__mobile__scroll__indicator'),
@@ -84,6 +82,18 @@ export default class {
 
     this.slorbieblorbie = document.querySelector(
       '.home__mobile__blob__container'
+    )
+
+    this.fullStack = document.querySelector(
+      '.home__mobile__professional__info--full-stack'
+    )
+
+    this.title = document.querySelector(
+      '.home__mobile__professional__info--title'
+    )
+
+    this.skills = document.querySelector(
+      '.home__mobile__professional__info--skills'
     )
 
     this.createProgram()
@@ -229,8 +239,6 @@ export default class {
       this.cursorPosition.x = event.touches[0].clientX
       this.cursorPosition.y = event.touches[0].clientY
 
-      console.log({ prog: this.mobileProgress })
-
       if (
         this.mobileProgress.completed >= 0 &&
         this.mobileProgress.completed + scrollDiff >= 0 &&
@@ -260,22 +268,89 @@ export default class {
     return this.projectId
   }
 
+  getCurrentPage(percentScrolled) {
+    return percentScrolled >= 0 && percentScrolled < 14
+      ? 0
+      : percentScrolled >= 14 && percentScrolled < 28
+      ? 1
+      : percentScrolled >= 28 && percentScrolled < 42
+      ? 2
+      : percentScrolled >= 42 && percentScrolled < 56
+      ? 3
+      : percentScrolled >= 56 && percentScrolled < 70
+      ? 4
+      : percentScrolled >= 70 && percentScrolled < 84
+      ? 5
+      : 6
+  }
+
   update() {
     if (!this.mesh) return
 
     if (this.slorbieblorbie) {
       gsap.to(this.slorbieblorbie, {
-        rotateZ: this.scroller.rotation,
+        rotateZ: -this.scroller.rotation,
       })
 
-      this.tempProgressIndicator.textContent = `${Math.ceil(
-        (this.mobileProgress.completed / this.mobileProgress.total) * 100
-      )}%`
+      if (
+        this.getCurrentPage(
+          (this.mobileProgress.completed / this.mobileProgress.total) * 100
+        ) === 0 ||
+        this.getCurrentPage(
+          (this.mobileProgress.completed / this.mobileProgress.total) * 100
+        ) === 1
+      ) {
+        gsap.to(this.slorbieblorbie, {
+          scale:
+            1 +
+            (((this.mobileProgress.completed / this.mobileProgress.total) *
+              100) /
+              14) *
+              2.5,
+          autoAlpha:
+            1 -
+            ((this.mobileProgress.completed / this.mobileProgress.total) *
+              100) /
+              14,
+        })
+
+        gsap.to(this.fullStack, {
+          x:
+            (((this.mobileProgress.completed / this.mobileProgress.total) *
+              100) /
+              14) *
+            500,
+        })
+
+        gsap.to(this.title, {
+          x:
+            (((this.mobileProgress.completed / this.mobileProgress.total) *
+              100) /
+              14) *
+            -500,
+        })
+
+        gsap.to(this.skills, {
+          y:
+            (((this.mobileProgress.completed / this.mobileProgress.total) *
+              100) /
+              14) *
+            1000,
+        })
+      }
     }
 
     if (this.scroller?.el) {
       gsap.to(this.scroller.el, {
         rotateZ: this.scroller.rotation,
+      })
+    }
+
+    if (this.progressBar) {
+      gsap.to(this.progressBar, {
+        width: `${
+          (this.mobileProgress.completed / this.mobileProgress.total) * 100
+        }vw`,
       })
     }
 
