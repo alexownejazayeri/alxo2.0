@@ -69,10 +69,11 @@ block content
             .home__mobile__project__overview--title OVERVIEW
             .home__mobile__project__overview--description This is a project with some things that are cool. For example, cute and fuzzy animols. Lorem ipsums ipsums ipsums ipsums ipsum.
           .home__mobile__project__video
-          .home__mobile__project__technologies
-            .home__mobile__project__technologies--title TECHNOLOGIES
-            .home__mobile__project__technologies--badges
+            video(autoplay controls loop muted).home__mobile__project__video--content
+              source(src="https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV")
+          .home__mobile__project__cta
+            a.home__mobile__projects__cta--code(href="#") Github
+            a.home__mobile__projects__cta--link(href="#") Project
 
         .home__mobile__scroll__indicator
           include ../partials/scroll.pug
-

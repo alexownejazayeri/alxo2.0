@@ -627,17 +627,44 @@
 .home__mobile__project__video {
   display: flex;
   width: 100%;
-  height: 28rem;
-
-  border: 1px solid #3c70f3;
+  padding: 1.4rem 0;
 }
 
-.home__mobile__project__technologies {
+.home__mobile__project__video--content {
+  width: 100%;
+  border-radius: 1.3rem;
+}
+
+.home__mobile__project__cta {
+  width: 100%;
+  height: 3.6rem;
+
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.home__mobile__project__technologies--title {
-  font-size: 2.4rem;
-  font-weight: 500;
+.home__mobile__projects__cta--code {
+  width: 12.8rem;
+  margin-right: 0.8rem;
+  border-radius: 0.7rem;
+
+  background: #ca6eff;
+  color: #2d173e;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__mobile__projects__cta--link {
+  width: 12.8rem;
+  margin-right: 0.8rem;
+  border-radius: 0.7rem;
+
+  background: #ca6eff;
+  color: #2d173e;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
