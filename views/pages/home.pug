@@ -49,18 +49,30 @@ block content
                 td.badge DynamoDB
                 td
       if device.isMobile
-        .home__mobile__progress__indicator
         .home__mobile__professional__info
           .home__mobile__professional__info--full-stack Full Stack
           .home__mobile__professional__info--title.special__boi Developer
           .home__mobile__professional__info--skills JavaScript | TypeScript | GraphQL | AWS
           .home__mobile__blob__container
-            svg(width="390" height="515" viewBox="0 0 390 515" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path.c1(d="M239.499 190.902C280.561 235.774 296.072 224.227 266.41 300.92C243.667 339.529 195.749 353.463 157.14 330.72C89.3177 298.935 105.667 258.241 128.41 219.632C156.498 171.948 200.889 168.16 239.499 190.902Z" fill="#E6C5FF")
-              path(fill-rule="evenodd" clip-rule="evenodd" d="M105.917 343.366C82.925 327.592 67.8958 317.282 69.0969 273.795C70.7515 213.884 104.727 166.437 127.812 153.064C131.417 150.976 134.456 149.008 137.217 147.219C152.138 137.552 158.958 133.134 203.229 143.446C255.694 155.666 327.924 182.122 329.491 206.45C329.621 208.454 329.753 210.31 329.877 212.053C331.264 231.48 331.656 236.968 315.287 277.605C310.09 290.508 306.087 301.803 302.592 311.665C294.091 335.651 288.59 351.172 276.199 360.797C258.712 374.379 206.685 385.211 206.685 385.211C206.685 385.211 173.265 400.663 134.929 365.656C124.419 356.059 114.6 349.323 105.917 343.366ZM126.732 323.767C108.98 311.59 97.3759 303.629 98.311 270.044C99.5991 223.775 126.254 183.298 144.083 172.966C145.272 172.277 146.383 171.622 147.435 171.003C162.155 162.332 165.101 160.597 202.913 169.397C243.425 178.825 290.964 199.51 292.17 218.298C292.423 222.246 292.815 225.188 293.149 227.69C294.402 237.094 294.827 240.28 283.941 267.295C278.242 281.439 275.168 294.045 272.569 304.708C268.881 319.831 266.147 331.046 258.226 337.2C244.72 347.692 204.541 356.067 204.541 356.067C204.541 356.067 178.731 368.007 149.132 340.977C141.018 333.567 133.437 328.366 126.732 323.767Z" fill="#E6C5FF")
-              path(fill-rule="evenodd" clip-rule="evenodd" d="M70.4773 382.304C37.2197 359.487 15.4801 344.573 17.2174 281.67C19.6108 195.01 68.7567 126.377 102.149 107.034C107.363 104.013 111.758 101.166 115.752 98.5783C137.336 84.5956 147.2 78.2052 211.239 93.1211C287.129 110.797 391.61 149.066 393.877 184.256C394.063 187.154 394.255 189.839 394.435 192.361C396.44 220.461 397.007 228.401 373.331 287.181C365.812 305.846 360.023 322.183 354.966 336.45C342.67 371.144 334.713 393.596 316.789 407.518C291.495 427.164 216.238 442.833 216.238 442.833C216.238 442.833 167.896 465.185 112.443 414.546C97.2408 400.664 83.0376 390.921 70.4773 382.304ZM99.7013 352.976C73.8025 335.208 56.8732 323.594 58.2231 274.612C60.0827 207.132 98.9456 148.109 124.947 133.048C126.68 132.044 128.301 131.09 129.834 130.187C151.303 117.547 155.599 115.018 210.756 127.867C269.852 141.635 339.201 171.822 340.968 199.224C341.339 204.982 341.913 209.273 342.4 212.923C344.232 226.638 344.853 231.284 328.986 270.681C320.679 291.306 316.201 309.69 312.413 325.24C307.041 347.295 303.057 363.65 291.506 372.622C271.81 387.919 213.208 400.116 213.208 400.116C213.208 400.116 175.565 417.519 132.381 378.085C120.543 367.275 109.482 359.687 99.7013 352.976Z" fill="#E6C5FF")
+            include ../partials/slorbie.pug
+        .home__mobile__project__container
+          .home__mobile__progress__indicator
+          .home__mobile__project__title Tinfur
+          .home__mobile__project__pagination
+            .home__mobile__project__pagination--page1 01.
+            .home__mobile__project__pagination--page2 02.
+            .home__mobile__project__pagination--page3 03.
+            .home__mobile__project__pagination--page4 04.
+            .home__mobile__project__pagination--page5 05.
+            .home__mobile__project__pagination--page6 06.
+          .home__mobile__project__overview
+            .home__mobile__project__overview--title OVERVIEW
+            .home__mobile__project__overview--description This is a project with some things that are cool. For example, cute and fuzzy animols. Lorem ipsums ipsums ipsums ipsums ipsum.
+          .home__mobile__project__video
+          .home__mobile__project__technologies
+            .home__mobile__project__technologies--title TECHNOLOGIES
+            .home__mobile__project__technologies--badges
 
-        
         .home__mobile__scroll__indicator
           include ../partials/scroll.pug
 

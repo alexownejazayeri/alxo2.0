@@ -44,6 +44,7 @@ export default class {
   fullStack: any
   title: any
   skills: any
+  projectsWrapper: any
 
   constructor({ camera, gl, renderer, scene }) {
     this.camera = camera
@@ -94,6 +95,10 @@ export default class {
 
     this.skills = document.querySelector(
       '.home__mobile__professional__info--skills'
+    )
+
+    this.projectsWrapper = document.querySelector(
+      '.home__mobile__project__container'
     )
 
     this.createProgram()
@@ -338,6 +343,12 @@ export default class {
             1000,
         })
       }
+
+      gsap.to(this.projectsWrapper, {
+        autoAlpha:
+          ((this.mobileProgress.completed / this.mobileProgress.total) * 100) /
+          14,
+      })
     }
 
     if (this.scroller?.el) {
