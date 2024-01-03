@@ -1,4 +1,4 @@
-export default class Page {
+export default class  Page {
   id: any
   element: Element | null
   elements: { [key: string]: Element }

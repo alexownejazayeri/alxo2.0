@@ -6,48 +6,74 @@ block variables
 block content
   .home()
     .home__wrapper
-      .home__projects__info
-        .home__projects__info--title Koality
-        svg.home__projects__info--line(width="563" height="2" viewBox="0 0 563 2" fill="none" xmlns="http://www.w3.org/2000/svg")
-          path(d="M1 1H562" stroke="black" stroke-width="2" stroke-linecap="round")
-        .home__projects__info--number
-      .home__projects__media
-        .home__projects__media--card1#p1 1
-        .home__projects__media--card2#p2 2
-        .home__projects__media--card3#p3 3
-        .home__projects__media--card4#p4 4
-        .home__projects__media--card5#p5 5
-        .home__projects__media--card6#p6 6
+      if !device.isMobile
+        .home__projects__info
+          .home__projects__info--title Koality
+          include ../partials/info-line.pug
+          .home__projects__info--number
+        .home__projects__media
+          .home__projects__media--card1#p1 1
+          .home__projects__media--card2#p2 2
+          .home__projects__media--card3#p3 3
+          .home__projects__media--card4#p4 4
+          .home__projects__media--card5#p5 5
+          .home__projects__media--card6#p6 6
+        .home__project__details
+          .home__project__overview
+            .home__project__overview--heading Overview
+            .home__project__overview--description
+            .home__project__overview__links--heading Project Links
+            .home__project__overview__links--url
+              include ../partials/url-icon.pug
+              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.example.com
 
-      .home__project__details
-        .home__project__overview
-          .home__project__overview--heading Overview
-          .home__project__overview--description
-          .home__project__overview__links--heading Project Links
-          .home__project__overview__links--url
-            svg.home__project__overview__links--url--icon(width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M1.925 4C1.925 2.7175 2.9675 1.675 4.25 1.675H7.25V0.25H4.25C2.18 0.25 0.5 1.93 0.5 4C0.5 6.07 2.18 7.75 4.25 7.75H7.25V6.325H4.25C2.9675 6.325 1.925 5.2825 1.925 4ZM5 4.75H11V3.25H5V4.75ZM11.75 0.25H8.75V1.675H11.75C13.0325 1.675 14.075 2.7175 14.075 4C14.075 5.2825 13.0325 6.325 11.75 6.325H8.75V7.75H11.75C13.82 7.75 15.5 6.07 15.5 4C15.5 1.93 13.82 0.25 11.75 0.25Z" )
-            a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.example.com
+            .home__project__overview__links--github
+              include ../partials/github-icon.pug
+              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.github.com/project-url
 
-          .home__project__overview__links--github
-            svg.home__project__overview__links--github--icon(width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M7.99999 0.846614C6.2498 0.834418 4.55296 1.44859 3.21603 2.57817C1.87911 3.70776 0.990278 5.27825 0.710116 7.00591C0.429954 8.73358 0.776942 10.5045 1.68839 11.9987C2.59984 13.4928 4.01563 14.6118 5.67999 15.1533C6.04665 15.2133 6.16665 14.9666 6.16665 14.7866V13.5599C4.14665 13.9866 3.71999 12.5866 3.71999 12.5866C3.35332 11.7266 2.86665 11.4866 2.86665 11.4866C2.25332 11.0533 2.93332 11.0533 2.93332 11.0533C3.66665 11.0533 4.08665 11.7866 4.08665 11.7866C4.69999 12.8866 5.79999 12.5866 6.22665 12.3999C6.22633 12.216 6.26406 12.034 6.33749 11.8653C6.41092 11.6967 6.51845 11.545 6.65332 11.4199C5.00665 11.2399 3.29332 10.6266 3.29332 7.75328C3.29332 7.01995 3.59999 6.35328 4.09332 5.85995C3.96259 5.55093 3.89522 5.21881 3.89522 4.88328C3.89522 4.54775 3.96259 4.21563 4.09332 3.90661C4.09332 3.90661 4.69999 3.71995 6.16665 4.63995C7.36665 4.31328 8.63332 4.31328 9.83332 4.63995C11.2333 3.71995 11.8467 3.90661 11.8467 3.90661C11.9774 4.21563 12.0447 4.54775 12.0447 4.88328C12.0447 5.21881 11.9774 5.55093 11.8467 5.85995C12.4 6.35328 12.6467 7.01995 12.6467 7.81995C12.6467 10.6266 10.9333 11.2399 9.28665 11.4199C9.58665 11.6666 9.83332 12.0333 9.83332 12.7666V14.7866C9.83332 14.9666 9.89999 15.2133 10.32 15.1533C11.9843 14.6118 13.4001 13.4928 14.3116 11.9987C15.223 10.5045 15.57 8.73358 15.2899 7.00591C15.0097 5.27825 14.1209 3.70776 12.7839 2.57817C11.447 1.44859 9.75018 0.834418 7.99999 0.846614Z")
-            a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.github.com/project-url
+          .home__project__technologies
+            .home__project__technologies__header
+              .home__project__technologies__header--heading Technologies
+            table.home__project__technologies--table
+              tr.home__project__technologies--table--row
+                td Frontend
+                td.badge TypeScript
+                td.badge JavaScript
+                td.badge WebGL
+                td
+              tr.home__project__technologies--table--row
+                td Backend
+                td.badge TypeScript
+                td.badge JavaScript
+                td.badge AWS Lambda
+                td.badge DynamoDB
+                td
+      if device.isMobile
+        .home__mobile__professional__info
+          .home__mobile__professional__info--full-stack Full Stack
+          .home__mobile__professional__info--title.special__boi Developer
+          .home__mobile__professional__info--skills JavaScript | TypeScript | GraphQL | AWS
+          .home__mobile__blob__container
+            include ../partials/slorbie.pug
+        .home__mobile__project__container
+          .home__mobile__progress__indicator
+          .home__mobile__project__title Koality
+          .home__mobile__project__pagination
+            .home__mobile__project__pagination--page1 01.
+            .home__mobile__project__pagination--page2 02.
+            .home__mobile__project__pagination--page3 03.
+            .home__mobile__project__pagination--page4 04.
+            .home__mobile__project__pagination--page5 05.
+            .home__mobile__project__pagination--page6 06.
+          .home__mobile__project__overview
+            .home__mobile__project__overview--title OVERVIEW
+            .home__mobile__project__overview--description Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.
+          .home__mobile__project__video
+            video(autoplay controls loop muted).home__mobile__project__video--content
+              source(src="https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV")
+          .home__mobile__project__cta
+            a.home__mobile__projects__cta--code(href="#" target="_blank") Github
+            a.home__mobile__projects__cta--link(href="#" target="_blank") Live Site
 
-        .home__project__technologies
-          .home__project__technologies__header
-            .home__project__technologies__header--heading Technologies
-          table.home__project__technologies--table
-            tr.home__project__technologies--table--row
-              td Frontend
-              td.badge TypeScript
-              td.badge JavaScript
-              td.badge WebGL
-              td
-            tr.home__project__technologies--table--row
-              td Backend
-              td.badge TypeScript
-              td.badge JavaScript
-              td.badge AWS Lambda
-              td.badge DynamoDB
-              td
+        .home__mobile__scroll__indicator
+          include ../partials/scroll.pug
