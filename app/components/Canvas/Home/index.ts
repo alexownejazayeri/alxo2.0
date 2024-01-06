@@ -22,7 +22,7 @@ const PROJECTS_MOCK = [
     title: 'Koality',
     description:
       'Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
-    image_url: 'https://picsum.photos/200',
+    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -36,7 +36,8 @@ const PROJECTS_MOCK = [
     title: 'Tinfur',
     description:
       'Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
-    image_url: 'https://picsum.photos/201',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -50,7 +51,8 @@ const PROJECTS_MOCK = [
     title: 'OP-1 Kenobi',
     description:
       'This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://picsum.photos/202',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -64,7 +66,8 @@ const PROJECTS_MOCK = [
     title: 'CODE-LE',
     description:
       'World clone for learning and practicing coding vocabulary and concepts built with React.',
-    image_url: 'https://picsum.photos/203',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -78,7 +81,8 @@ const PROJECTS_MOCK = [
     title: 'LiveOrder',
     description:
       'Ticketing product used by Outside Lands. Built core ticketing features using AWS AppSync and Next.js.',
-    image_url: 'https://picsum.photos/204',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -92,7 +96,7 @@ const PROJECTS_MOCK = [
     title: 'Moon Water',
     description:
       'This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://picsum.photos/205/',
+    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -375,6 +379,15 @@ export default class {
 
       projectDescriptionEl.textContent =
         PROJECTS_MOCK[this.currentPage - 1].description
+
+      const projectVideo: HTMLVideoElement = document.querySelector(
+        '.home__mobile__project__video--content'
+      )!
+
+      if (projectVideo.src !== PROJECTS_MOCK[this.currentPage - 1].videoUrl) {
+        projectVideo.src = PROJECTS_MOCK[this.currentPage - 1].videoUrl
+        projectVideo.load()
+      }
 
       const githubLink: HTMLAnchorElement = document.querySelector(
         '.home__mobile__projects__cta--code'

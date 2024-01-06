@@ -1,4 +1,3 @@
-import gsap from 'gsap'
 import Page from '../../classes/Page'
 import ProjectShowcase from '../../components/ProjectShowcase'
 
@@ -7,7 +6,7 @@ const PROJECTS_MOCK = [
     title: 'Koality',
     description:
       'Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
-    image_url: 'https://picsum.photos/200',
+    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -21,7 +20,8 @@ const PROJECTS_MOCK = [
     title: 'Tinfur',
     description:
       'Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
-    image_url: 'https://picsum.photos/201',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -35,7 +35,8 @@ const PROJECTS_MOCK = [
     title: 'OP-1 Kenobi',
     description:
       'This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://picsum.photos/202',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -49,7 +50,8 @@ const PROJECTS_MOCK = [
     title: 'CODE-LE',
     description:
       'World clone for learning and practicing coding vocabulary and concepts built with React.',
-    image_url: 'https://picsum.photos/203',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -63,7 +65,8 @@ const PROJECTS_MOCK = [
     title: 'LiveOrder',
     description:
       'Ticketing product used by Outside Lands. Built core ticketing features using AWS AppSync and Next.js.',
-    image_url: 'https://picsum.photos/204',
+    videoUrl:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -77,7 +80,7 @@ const PROJECTS_MOCK = [
     title: 'Moon Water',
     description:
       'This is an awesome description about stuff. This project, for example is an incredible project.',
-    image_url: 'https://picsum.photos/205/',
+    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://www.example.com',
       github_url: 'https://www.github.com/my-example-project',
@@ -110,7 +113,7 @@ export default class Home extends Page {
   createShowcase() {
     this.projectShowcase = new ProjectShowcase({
       title: PROJECTS_MOCK[this.projectId]?.title,
-      imageUrl: PROJECTS_MOCK[this.projectId]?.image_url,
+      videoUrl: PROJECTS_MOCK[this.projectId]?.videoUrl,
       description: PROJECTS_MOCK[this.projectId]?.description,
       number: `0${this.projectId + 1}.`,
       url: PROJECTS_MOCK[this.projectId]?.project_links?.url,
@@ -120,11 +123,12 @@ export default class Home extends Page {
 
   createMedia() {
     PROJECTS_MOCK.map((project, i) => {
-      const card: HTMLElement | null = document.querySelector(
-        `.home__projects__media--card${i + 1}`
-      )
-      if (card && card.style) {
-        card.style.backgroundImage = `url(${project.image_url})`
+      const videoClips: NodeListOf<HTMLVideoElement> =
+        document.querySelectorAll(`.project__card__video__clip`)
+
+      if (videoClips && videoClips.length) {
+        videoClips[i].src = PROJECTS_MOCK[i].videoUrl
+        videoClips[i].load()
       }
     })
   }

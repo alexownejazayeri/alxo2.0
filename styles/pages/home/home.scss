@@ -628,7 +628,9 @@
 
 .home__mobile__project__video {
   display: flex;
-  width: 100%;
+  min-width: 32.7rem;
+  min-height: 18.4rem;
+  object-fit: contain;
   padding: 1.4rem 0;
 }
 
