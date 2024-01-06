@@ -13,7 +13,7 @@ export default class ImageCard {
   description: string
   github_url: string
   number: string
-  imageUrl: string
+  videoUrl: string
   title: string
   url: string
 
@@ -33,10 +33,10 @@ export default class ImageCard {
   project5: HTMLElement
   project6: HTMLElement
 
-  constructor({ description, github_url, number, imageUrl, title, url }) {
+  constructor({ description, github_url, number, videoUrl, title, url }) {
     this.description = description
     this.github_url = github_url
-    this.imageUrl = imageUrl
+    this.videoUrl = videoUrl
     this.number = number
     this.title = title
     this.url = url
