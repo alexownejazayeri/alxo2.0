@@ -6,7 +6,7 @@ block variables
 block content
   .home()
     .home__wrapper
-      if !device.isMobile
+      if !userDevice.isMobile
         .home__projects__info
           .home__projects__info--title Koality
           include ../partials/info-line.pug
@@ -56,7 +56,7 @@ block content
                 td.badge AWS Lambda
                 td.badge DynamoDB
                 td
-      if device.isMobile
+      if userDevice.isMobile
         .home__mobile__professional__info
           .home__mobile__professional__info--full-stack Full Stack
           .home__mobile__professional__info--title.special__boi Developer

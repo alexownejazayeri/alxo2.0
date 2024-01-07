@@ -1,36 +1,41 @@
 import GSAP from 'gsap'
+import { HTMLSemanticTagNameMap } from '../../types'
 
-export class Navigation {
-  container: HTMLElement | null
-  element: string
-  elements: any
-  hamburger: HTMLElement | null
+export default class Navigation {
+  static selector = '.topnav'
+  static elements = {
+    container: '.topnav__container',
+    hamburgerButton: '.topnav__link',
+  }
+
   isExpanded: boolean
-  topNav: HTMLElement | null
+  topNavElement: HTMLSemanticTagNameMap['nav']
+  containerElement: HTMLDivElement
+  hamburgerButtonElement: HTMLButtonElement
+
   constructor() {
-    this.element = '.topnav'
-    this.elements = {
-      container: '.topnav__container',
-      hamburger: '.topnav__link',
-    }
-
-    this.topNav = document.querySelector(this.element)
-    this.container = document.querySelector(this.elements.container)
-    this.hamburger = document.querySelector(this.elements.hamburger)
-
     this.isExpanded = false
-    this.addEventListener()
+
+    this.topNavElement = document.querySelector(Navigation.selector)!
+    this.containerElement = document.querySelector(
+      Navigation.elements.container
+    )!
+    this.hamburgerButtonElement = document.querySelector(
+      Navigation.elements.hamburgerButton
+    )!
+
+    this.addEventListeners()
   }
 
   onDropdown() {
     if (!this.isExpanded) {
-      GSAP.to(this.element, {
+      GSAP.to(Navigation.selector, {
         ease: 'expo.out',
         duration: 1,
-        y: window.innerHeight - (this.topNav?.offsetHeight || 0),
+        y: window.innerHeight - (this.topNavElement?.offsetHeight || 0),
       })
 
-      GSAP.to(this.container, {
+      GSAP.to(this.containerElement, {
         duration: 0.5,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
@@ -65,13 +70,13 @@ export class Navigation {
         autoAlpha: 0,
       })
 
-      GSAP.to(this.element, {
+      GSAP.to(Navigation.selector, {
         duration: 0.5,
         y: 0,
       })
 
       if (window.innerWidth > 800) {
-        GSAP.to(this.container, {
+        GSAP.to(this.containerElement, {
           duration: 0.5,
           borderBottomLeftRadius: '1.3rem',
           borderBottomRightRadius: '1.3rem',
@@ -169,11 +174,9 @@ export class Navigation {
     }
   }
 
-  addEventListener() {
-    const hamburgerButton = document.querySelector(this.elements.hamburger)
-
-    hamburgerButton.onclick = this.onDropdown.bind(this)
-    hamburgerButton.onmouseenter = this.onEnter.bind(this)
-    hamburgerButton.onmouseleave = this.onLeave.bind(this)
+  addEventListeners() {
+    this.hamburgerButtonElement.onclick = this.onDropdown.bind(this)
+    this.hamburgerButtonElement.onmouseenter = this.onEnter.bind(this)
+    this.hamburgerButtonElement.onmouseleave = this.onLeave.bind(this)
   }
 }

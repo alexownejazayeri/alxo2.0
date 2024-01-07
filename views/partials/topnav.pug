@@ -4,7 +4,7 @@ nav.topnav
     .topnav__hamburger
       button.topnav__link
         include ./hamburger.pug
-    if !device.isMobile
+    if !userDevice.isMobile
       .topnav__location Hello from Oakland, CA 🌲
-    if device.isMobile
+    if userDevice.isMobile
       include ./alxo-icon.pug

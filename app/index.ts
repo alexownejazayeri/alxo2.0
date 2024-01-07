@@ -1,40 +1,41 @@
 import NormalizeWheel from 'normalize-wheel'
+import { PageTemplate, HTMLSemanticTagNameMap } from './types'
 
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import FourOhFour from './pages/404'
 
-import Canvas from './components/Canvas'
-import { Navigation } from './components/Navigation'
+import OGLCanvas from './components/OGLCanvas'
+import Navigation from './components/Navigation'
 
 class App {
-  canvas: Canvas
-  content: Element | null
+  OGLCanvas: OGLCanvas
   navigation: Navigation
-  template: string | null | undefined
+  pageContentElement: HTMLSemanticTagNameMap['main']
+  template: PageTemplate
   pages: { [key: string]: About | Home }
   page: About | Home
   projectId: number
 
   constructor() {
-    this.content = document.querySelector('.content')
-    this.template = this.content?.getAttribute('data-template')
-
+    this.pageContentElement = document.querySelector('.content')!
+    this.template = this.pageContentElement.getAttribute(
+      'data-template'
+    )! as PageTemplate
     this.projectId = 0
 
-    this.createCanvas()
-    this.createPages()
+    this.createOGLCanvas()
     this.createNavigation()
+    this.createPages()
     this.addEventListeners()
 
     this.onResize()
-
     this.update()
   }
 
-  createCanvas() {
-    this.canvas = new Canvas({
+  createOGLCanvas() {
+    this.OGLCanvas = new OGLCanvas({
       template: this.template,
     })
   }
@@ -53,37 +54,37 @@ class App {
       fourohfour: new FourOhFour(),
     }
 
-    this.page = this.pages[this.template || 'home']
+    this.page = this.pages[this.template]
     this.page.create()
   }
 
   onResize() {
-    window.requestAnimationFrame(() => this.canvas.onResize())
+    requestAnimationFrame(() => this.OGLCanvas.onResize())
   }
 
   onTouchDown(event: MouseEvent | TouchEvent) {
-    if (this.canvas && this.canvas.onTouchDown) {
-      this.canvas.onTouchDown(event)
+    if (this.OGLCanvas && this.OGLCanvas.onTouchDown) {
+      this.OGLCanvas.onTouchDown(event)
     }
   }
 
   onTouchMove(event: MouseEvent | TouchEvent) {
-    if (this.canvas && this.canvas.onTouchMove) {
-      this.canvas.onTouchMove(event)
+    if (this.OGLCanvas && this.OGLCanvas.onTouchMove) {
+      this.OGLCanvas.onTouchMove(event)
     }
   }
 
   onTouchUp(event: MouseEvent | TouchEvent) {
-    if (this.canvas && this.canvas.onTouchUp) {
-      this.canvas.onTouchUp(event)
+    if (this.OGLCanvas && this.OGLCanvas.onTouchUp) {
+      this.OGLCanvas.onTouchUp(event)
     }
   }
 
   onWheel(event) {
     const normalizedWheel = NormalizeWheel(event)
 
-    if (this.canvas && this.canvas.onWheel) {
-      this.canvas.onWheel(normalizedWheel)
+    if (this.OGLCanvas && this.OGLCanvas.onWheel) {
+      this.OGLCanvas.onWheel(normalizedWheel)
     }
 
     if (this.page && this.page.onWheel) {
@@ -108,19 +109,19 @@ class App {
   }
 
   update() {
-    if (this.canvas && this.canvas.update) {
-      this.canvas.update()
+    if (this.OGLCanvas && this.OGLCanvas.update) {
+      this.OGLCanvas.update()
     }
 
-    if (this.canvas.home) {
-      this.projectId = this.canvas.onProjectSelect()
+    if (this.OGLCanvas.home) {
+      this.projectId = this.OGLCanvas.onProjectSelect()
     }
 
     if (this.page instanceof Home) {
       this.page.update(this.projectId - 1 || 0)
     }
 
-    window.requestAnimationFrame(this.update.bind(this))
+    requestAnimationFrame(this.update.bind(this))
   }
 }
 
