@@ -3,9 +3,11 @@ import { HTMLSemanticTagNameMap } from '../../types'
 
 export default class Navigation {
   static selector = '.topnav'
+  // TODO: create static props for .navigation cmps
   static elements = {
     container: '.topnav__container',
     hamburgerButton: '.topnav__link',
+    // TODO: move other element selectors in here
   }
 
   isExpanded: boolean

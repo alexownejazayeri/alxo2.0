@@ -13,9 +13,9 @@ import {
 } from 'ogl-typescript'
 
 // @ts-ignore
-import vertex from '../../../shaders/test-vertex.glsl'
+import vertex from '../../../shaders/home-vertex.glsl'
 // @ts-ignore
-import fragment from '../../../shaders/test-fragment.glsl'
+import fragment from '../../../shaders/home-fragment.glsl'
 
 const PROJECTS_MOCK = [
   {
