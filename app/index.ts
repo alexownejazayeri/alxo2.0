@@ -25,7 +25,7 @@ class App {
     )! as PageTemplate
     this.projectId = 0
 
-    this.createOGLCanvas()
+    this.renderOGLCanvas()
     this.createNavigation()
     this.createPages()
     this.addEventListeners()
@@ -34,7 +34,7 @@ class App {
     this.update()
   }
 
-  createOGLCanvas() {
+  renderOGLCanvas() {
     this.OGLCanvas = new OGLCanvas({
       template: this.template,
     })

@@ -40,8 +40,8 @@ export default class {
     this.renderer = renderer
     this.scene = scene
 
-    this.createProgram()
     this.createGeometry()
+    this.createProgram()
     this.createMesh()
   }
 
@@ -54,15 +54,6 @@ export default class {
     })
   }
 
-  createMesh() {
-    this.mesh = new Mesh(this.gl, {
-      geometry: this.geometry,
-      program: this.program,
-    })
-
-    this.mesh.setParent(this.scene)
-  }
-
   createProgram() {
     this.program = new Program(this.gl, {
       vertex,
@@ -71,6 +62,15 @@ export default class {
         uTargetRender: { value: 0 },
       },
     })
+  }
+
+  createMesh() {
+    this.mesh = new Mesh(this.gl, {
+      geometry: this.geometry,
+      program: this.program,
+    })
+
+    this.mesh.setParent(this.scene)
   }
 
   onTouchUp(event: MouseEvent | TouchEvent) {
