@@ -1,4 +1,4 @@
-import Page from '../../classes/Page'
+import Page, { SitePage } from '../../classes/Page'
 import ProjectShowcase from '../../components/ProjectShowcase'
 
 const PROJECTS_MOCK = [
@@ -92,7 +92,7 @@ const PROJECTS_MOCK = [
   },
 ]
 
-export default class Home extends Page {
+export default class Home extends Page implements SitePage {
   projectId: number
   projectShowcase: ProjectShowcase | null
 

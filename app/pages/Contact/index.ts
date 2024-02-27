@@ -7,9 +7,10 @@ export default class Contact extends Page {
   handWave?: Element
   constructor() {
     super({
+      id: 'contact',
+
       selector: '.contact',
       elements: [],
-      id: 'contact',
     })
 
     this.createContact()

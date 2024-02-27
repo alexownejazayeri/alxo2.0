@@ -1,9 +1,13 @@
-export default class  Page {
+export interface SitePage {
+  
+}
+
+export default class Page {
   id: any
   element: Element | null
   elements: { [key: string]: Element }
   scroll: { current: number; target: number; last: number; limit: number }
-  selector: any
+  selector: string
   selectorChildren: any
 
   constructor({ selector, elements, id }) {
