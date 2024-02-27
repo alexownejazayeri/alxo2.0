@@ -10,7 +10,7 @@ import { Application, Request } from 'express'
 const app: Application = express()
 const port = process.env.EXPRESS_PORT || 8160
 
-const detectDevice = (request: Request) => {
+const detectUserDevice = (request: Request) => {
   const ua = UAParser(request.headers['user-agent'])
 
   return {
@@ -26,31 +26,31 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-  const device = detectDevice(req)
-  const title = 'ALXO | Home'
+  const userDevice = detectUserDevice(req)
+  const HTMLTitleElementText = 'ALXO | Home'
 
-  res.render('pages/home', { device, title })
+  res.render('pages/home', { userDevice, HTMLTitleElementText })
 })
 
 app.get('/about', (req, res) => {
-  const device = detectDevice(req)
-  const title = 'ALXO | About'
+  const userDevice = detectUserDevice(req)
+  const HTMLTitleElementText = 'ALXO | About'
 
-  res.render('pages/about', { device, title })
+  res.render('pages/about', { userDevice, HTMLTitleElementText })
 })
 
 app.get('/contact', (req, res) => {
-  const device = detectDevice(req)
-  const title = 'ALXO | Contact Me'
+  const userDevice = detectUserDevice(req)
+  const HTMLTitleElementText = 'ALXO | Contact Me'
 
-  res.render('pages/contact', { device, title })
+  res.render('pages/contact', { userDevice, HTMLTitleElementText })
 })
 
 app.get('*', (req, res) => {
-  const device = detectDevice(req)
-  const title = 'ALXO | Page Not Found'
+  const userDevice = detectUserDevice(req)
+  const HTMLTitleElementText = 'ALXO | Page Not Found'
 
-  res.render('pages/404', { device, title })
+  res.render('pages/404', { userDevice, HTMLTitleElementText })
 })
 
 app.listen(port, () => {

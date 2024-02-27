@@ -5,18 +5,20 @@ import {
   Transform,
 } from 'ogl-typescript'
 
+import { PageTemplate } from '../../types'
+
 import Home from './Home'
 import FourOhFour from './404'
 
-export default class Canvas {
-  camera: Camera
-  fourohfour: FourOhFour
+export default class OGLCanvas {
+  template: PageTemplate
+  renderer: Renderer
   gl: OGLRenderingContext
+  camera: Camera
+  scene: Transform
+  fourohfour: FourOhFour
   home: Home
   projectId: number
-  renderer: Renderer
-  scene: Transform
-  template: string
 
   constructor({ template }) {
     this.template = template
@@ -28,6 +30,26 @@ export default class Canvas {
     this.addEventListener()
 
     this.onResize()
+  }
+
+  createRenderer() {
+    this.renderer = new Renderer({
+      alpha: true,
+      antialias: true,
+      dpr: 2,
+    })
+
+    this.gl = this.renderer.gl
+    document.body.appendChild(this.gl.canvas)
+  }
+
+  createCamera() {
+    this.camera = new Camera(this.gl, { fov: 35 })
+    this.camera.position.z = 25
+  }
+
+  createScene() {
+    this.scene = new Transform()
   }
 
   createHome() {
@@ -52,32 +74,11 @@ export default class Canvas {
     this.renderer.render({ scene: this.scene, camera: this.camera })
   }
 
-  createRenderer() {
-    this.renderer = new Renderer({
-      alpha: true,
-      antialias: true,
-      dpr: 2,
-    })
-
-    this.gl = this.renderer.gl
-    document.body.appendChild(this.gl.canvas)
-    this.gl.clearColor(1, 1, 1, 1)
-  }
-
-  createCamera() {
-    this.camera = new Camera(this.gl, { fov: 35 })
-    this.camera.position.z = 25
-  }
-
-  createScene() {
-    this.scene = new Transform()
-  }
-
   onResize() {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.camera.perspective({
       aspect: window.innerWidth / window.innerHeight,
-      fov: window.innerWidth <= 1368 ? 40 : 35,
+      fov: window.innerWidth <= 1368 ? 40 : 35, // TODO: refactor magic numbers to constants
     })
 
     if (!this.home && this.template === 'home') {

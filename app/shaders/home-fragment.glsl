@@ -1,7 +1,5 @@
 precision highp float;
 
-uniform float uTime;
-
 // Re-use same program to render pick-texture
 uniform bool uTargetRender;
 

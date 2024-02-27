@@ -7,12 +7,12 @@ block content
   .contact()
     .contact__wrapper
       .contact__heading
-        if !device.isMobile
+        if !userDevice.isMobile
           span.handwave 👋
           span Say
           span hello
           span .
-        if device.isMobile
+        if userDevice.isMobile
           span Say
           span
             p.handwave 👋
@@ -22,7 +22,7 @@ block content
         svg.contact__cta__text__bar(width="8" height="100%" viewBox="0 0 8 410" fill="none" xmlns="http://www.w3.org/2000/svg")
           path(d="M4 406.005L4 3.99989" stroke="black" stroke-width="7" stroke-linecap="round")
         .contact__cta__text__container
-          if device.isMobile
+          if userDevice.isMobile
             .contact__cta__text--line1
               span Message me here
               a.linkedin__cta__link(href="https://www.linkedin.com/in/alxo/" target="_blank") LINKEDIN
