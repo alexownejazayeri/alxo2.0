@@ -28,6 +28,8 @@ export default class Home extends Page implements SitePage {
       number: `0${this.projectId + 1}.`,
       url: PROJECTS[this.projectId]?.project_links?.url,
       github_url: PROJECTS[this.projectId]?.project_links?.github_url,
+      frontendTech: PROJECTS[this.projectId]?.technologies.frontend,
+      backendTech: PROJECTS[this.projectId]?.technologies.backend,
     })
   }
 
@@ -51,6 +53,8 @@ export default class Home extends Page implements SitePage {
         selectedNumber: `0${id + 1}.`,
         selectedUrl: PROJECTS[id].project_links.url,
         selectedGithubUrl: PROJECTS[id].project_links.github_url,
+        selectedFrontendTech: PROJECTS[id].technologies?.frontend,
+        selectedBackendTech: PROJECTS[id].technologies?.backend,
         id,
       })
     }

@@ -9,8 +9,8 @@ const PROJECTS = [
       github_url: '',
     },
     technologies: {
-      frontend: ['TypeScript', 'React', 'TailwindCSS', 'Vite'],
-      backend: ['TypeScript', 'Node', 'Express', 'NoSQL', 'REST', 'Vitest'],
+      frontend: ['TypeScript', 'React', 'TailwindCSS', 'Framer', 'Vite'],
+      backend: ['TypeScript', 'Node', 'Express', 'Vitest'],
     },
   },
   {
@@ -23,7 +23,7 @@ const PROJECTS = [
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['JavaScript', 'TypeScript', 'React', 'Styled Components'],
+      frontend: ['JS', 'TypeScript', 'React', 'Styled Components', 'Webpack'],
       backend: ['TypeScript', 'VTL', 'GraphQL', 'NoSQL', 'Serverless'],
     },
   },
@@ -37,8 +37,8 @@ const PROJECTS = [
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: [],
-      backend: ['TypeScript', 'VTL', 'AWS AppSync', 'DynamoDB', 'Serverless'],
+      frontend: ['TypeScript', 'React'],
+      backend: ['TypeScript', 'VTL', 'AppSync', 'DynamoDB', 'Serverless'],
     },
   },
   {
@@ -52,7 +52,7 @@ const PROJECTS = [
     },
     technologies: {
       frontend: ['TypeScript', 'Next.js', 'GraphQL'],
-      backend: ['VTL', 'AWS AppSync', 'DynamoDB', 'Serverless'],
+      backend: ['VTL', 'AppSync', 'DynamoDB', 'Serverless'],
     },
   },
   {
@@ -61,7 +61,7 @@ const PROJECTS = [
       'Embeds live event and festival lineup, artists, vendor, sponsor, and schedule data into web pages.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://aloompa.com/mobile-apps',
+      url: 'https://aloompa.com/mobile-apps/#extra-efficiency',
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
@@ -72,14 +72,15 @@ const PROJECTS = [
   {
     title: 'OP1-Kenobi',
     description:
-      'Gives users the ability to make sweet lofi beats to chill and not study to.',
+      'Gives users the joy of making, or jamming to their favorite lofi beats to chill and not study to.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://op1kenob.io/',
       github_url: 'https://github.com/alexownejazayeri/op1kenobi',
     },
     technologies: {
-      frontend: ['JavaScript', 'React', 'Sass', 'HTML'],
+      frontend: ['JavaScript', 'React', 'Sass'],
+      backend: [],
     },
   },
 ]
