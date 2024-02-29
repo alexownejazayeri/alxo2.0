@@ -12,101 +12,12 @@ import {
   Vec3,
 } from 'ogl-typescript'
 
+import PROJECTS from '../../../data/projects'
+
 // @ts-ignore
 import vertex from '../../../shaders/home-vertex.glsl'
 // @ts-ignore
 import fragment from '../../../shaders/home-fragment.glsl'
-
-const PROJECTS_MOCK = [
-  {
-    title: 'Koality',
-    description:
-      'Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.',
-    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react', 'next.js'],
-      backend: ['node.js', 'ChatGPT'],
-    },
-  },
-  {
-    title: 'Tinfur',
-    description:
-      'Tinder-style swipe app for finding a forever home for pets using pet finding APIs.',
-    videoUrl:
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
-    },
-  },
-  {
-    title: 'OP-1 Kenobi',
-    description:
-      'This is an awesome description about stuff. This project, for example is an incredible project.',
-    videoUrl:
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
-    },
-  },
-  {
-    title: 'CODE-LE',
-    description:
-      'World clone for learning and practicing coding vocabulary and concepts built with React.',
-    videoUrl:
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
-    },
-  },
-  {
-    title: 'LiveOrder',
-    description:
-      'Ticketing product used by Outside Lands. Built core ticketing features using AWS AppSync and Next.js.',
-    videoUrl:
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
-    },
-  },
-  {
-    title: 'Moon Water',
-    description:
-      'This is an awesome description about stuff. This project, for example is an incredible project.',
-    videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
-    project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
-    },
-    technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
-    },
-  },
-]
 
 export default class {
   activeElementId: number
@@ -371,21 +282,21 @@ export default class {
         '.home__mobile__project__title'
       )!
 
-      projectTitleEl.textContent = PROJECTS_MOCK[this.currentPage - 1].title
+      projectTitleEl.textContent = PROJECTS[this.currentPage - 1].title
 
       const projectDescriptionEl = document.querySelector(
         '.home__mobile__project__overview--description'
       )!
 
       projectDescriptionEl.textContent =
-        PROJECTS_MOCK[this.currentPage - 1].description
+        PROJECTS[this.currentPage - 1].description
 
       const projectVideo: HTMLVideoElement = document.querySelector(
         '.home__mobile__project__video--content'
       )!
 
-      if (projectVideo.src !== PROJECTS_MOCK[this.currentPage - 1].videoUrl) {
-        projectVideo.src = PROJECTS_MOCK[this.currentPage - 1].videoUrl
+      if (projectVideo.src !== PROJECTS[this.currentPage - 1].videoUrl) {
+        projectVideo.src = PROJECTS[this.currentPage - 1].videoUrl
         projectVideo.load()
       }
 
@@ -393,14 +304,13 @@ export default class {
         '.home__mobile__projects__cta--code'
       )!
 
-      githubLink.href =
-        PROJECTS_MOCK[this.currentPage - 1].project_links.github_url
+      githubLink.href = PROJECTS[this.currentPage - 1].project_links.github_url
 
       const siteLink: HTMLAnchorElement = document.querySelector(
         '.home__mobile__projects__cta--link'
       )!
 
-      siteLink.href = PROJECTS_MOCK[this.currentPage - 1].project_links.url
+      siteLink.href = PROJECTS[this.currentPage - 1].project_links.url
     }
   }
 

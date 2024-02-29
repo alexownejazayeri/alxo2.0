@@ -21,7 +21,7 @@ export default class ImageCard {
   projectNumber: HTMLElement | null
   projectTitle: HTMLElement | null
   projectDescription: HTMLElement | null
-  projectUrl: HTMLElement | null
+  projectUrls: NodeListOf<Element> | null
   projectCard?: Element
   mainProjectMediaIndex: number
   currentProjectIndex: any
@@ -44,13 +44,10 @@ export default class ImageCard {
     this.projectDescription = document.querySelector(
       '.home__project__overview--description'
     )
-
     this.projectNumber = document.querySelector('.home__projects__info--number')
-
     this.projectTitle = document.querySelector('.home__projects__info--title')
-
-    this.projectUrl = document.querySelector(
-      '.home__project__overview__links--url'
+    this.projectUrls = document.querySelectorAll(
+      '.home__project__overview__links--url--link'
     )
 
     this.project1 = document.getElementById('p1')!
@@ -64,10 +61,17 @@ export default class ImageCard {
   }
 
   render(): void {
-    if (this.projectDescription && this.projectTitle && this.projectNumber) {
+    if (
+      this.projectDescription &&
+      this.projectTitle &&
+      this.projectNumber &&
+      this.projectUrls
+    ) {
       this.projectTitle.textContent = this.title
       this.projectDescription.textContent = this.description
       this.projectNumber.textContent = this.number
+      this.projectUrls[0].textContent = this.url
+      this.projectUrls[1].textContent = this.github_url
     }
   }
 
@@ -75,12 +79,33 @@ export default class ImageCard {
     selectedNumber,
     selectedTitle,
     selectedDescription,
+    selectedUrl,
+    selectedGithubUrl,
     id: selectedProjectIndex,
   }) {
-    if (this.projectDescription && this.projectTitle && this.projectNumber) {
+    if (
+      this.projectDescription &&
+      this.projectTitle &&
+      this.projectNumber &&
+      this.projectUrls
+    ) {
       this.projectTitle.textContent = selectedTitle
       this.projectDescription.textContent = selectedDescription
       this.projectNumber.textContent = selectedNumber
+
+      // Set link text and href
+      this.projectUrls[0].textContent = selectedUrl
+      this.projectUrls[0].setAttribute('href', selectedUrl)
+
+      // Set github text and href
+      const hasGithubUrl = selectedGithubUrl !== ''
+
+      if (!hasGithubUrl) {
+        const gitHubLogo = document.querySelector('')
+      }
+
+      this.projectUrls[1].textContent = selectedGithubUrl
+      this.projectUrls[1].setAttribute('href', selectedGithubUrl)
 
       if (
         this.currentProjectIndex === undefined ||
