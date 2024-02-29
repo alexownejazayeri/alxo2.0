@@ -2,7 +2,7 @@ const PROJECTS = [
   {
     title: 'Daily Playlister',
     description:
-      'Connects both emerging and established artists with curators who review and add tracks to Spotify playlists.',
+      'Connects artists with curators who review and add tracks to high-traffic Spotify playlists.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://streamingpromotions.com/what-we-do/',
@@ -16,83 +16,70 @@ const PROJECTS = [
   {
     title: 'FestApp CMS',
     description:
-      'Builds mobile apps through a Content Management System (CMS) used by festivals like Coachella & Outside Lands.',
+      'Builds mobile apps through a Content Management System (CMS) used by events like Coachella.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://aloompa.com/content-management/#',
+      url: 'https://aloompa.com/content-management',
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: [
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Styled Components',
-        'Webpack',
-      ],
-      backend: [
-        'JavaScript',
-        'TypeScript',
-        'VTL',
-        'GraphQL',
-        'NoSQL',
-        'Serverless',
-      ],
+      frontend: ['JavaScript', 'TypeScript', 'React', 'Styled Components'],
+      backend: ['TypeScript', 'VTL', 'GraphQL', 'NoSQL', 'Serverless'],
     },
   },
   {
     title: 'LiveOrder',
     description:
-      'Enables festival and live event planners to create and manage online stores for pre-ordering at merch and vendor tables.',
+      'Enables live events to create and manage online stores for pre-ordering at merch and vendor tables.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://aloompa.com/mobile-ordering/',
+      url: 'https://aloompa.com/mobile-ordering',
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['JavaScript', 'TypeScript', 'Next.js'],
-      backend: ['JavaScript', 'TypeScript', 'GraphQL', 'NoSQL', 'Serverless'],
+      frontend: [],
+      backend: ['TypeScript', 'VTL', 'AWS AppSync', 'DynamoDB', 'Serverless'],
     },
   },
   {
     title: 'Ticketing Web',
-    description: '',
+    description:
+      'Puts the power of online ticketing into the hands of event owners through a fully configurable store.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://www.example.com',
+      url: 'https://aloompa.com/reservations-access-control',
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
+      frontend: ['TypeScript', 'Next.js', 'GraphQL'],
+      backend: ['VTL', 'AWS AppSync', 'DynamoDB', 'Serverless'],
     },
   },
   {
     title: 'Web Embeds',
     description:
-      'World clone for learning and practicing coding vocabulary and concepts built with React.',
+      'Embeds live event and festival lineup, artists, vendor, sponsor, and schedule data into web pages.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
+      url: 'https://aloompa.com/mobile-apps',
+      github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
+      frontend: ['TypeScript', 'React', 'Babel'],
+      backend: ['S3', 'Cloudfront'],
     },
   },
   {
     title: 'OP1-Kenobi',
     description:
-      'This is an awesome description about stuff. This project, for example is an incredible project.',
+      'Gives users the ability to make sweet lofi beats to chill and not study to.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
-      url: 'https://www.example.com',
-      github_url: 'https://www.github.com/my-example-project',
+      url: 'https://op1kenob.io/',
+      github_url: 'https://github.com/alexownejazayeri/op1kenobi',
     },
     technologies: {
-      frontend: ['javascript', 'typescript', 'react'],
-      backend: ['javascript', 'typescript', 'aws'],
+      frontend: ['JavaScript', 'React', 'Sass', 'HTML'],
     },
   },
 ]

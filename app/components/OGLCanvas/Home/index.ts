@@ -71,7 +71,7 @@ export default class {
     }
 
     this.mobileProgress = {
-      total: window.innerHeight * 3.5 * 3, // TODO: magic #, move to constant
+      total: window.innerHeight * 2, // TODO: magic #, move to constant
       completed: 0,
     }
 

@@ -100,8 +100,14 @@ export default class ImageCard {
       // Set github text and href
       const hasGithubUrl = selectedGithubUrl !== ''
 
+      const gitHubLogo = document.querySelector(
+        '.home__project__overview__links--github--icon'
+      )!
+
       if (!hasGithubUrl) {
-        const gitHubLogo = document.querySelector('')
+        gitHubLogo.setAttribute('display', 'none')
+      } else {
+        gitHubLogo.setAttribute('display', 'visible')
       }
 
       this.projectUrls[1].textContent = selectedGithubUrl
