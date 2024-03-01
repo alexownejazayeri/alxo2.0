@@ -2,15 +2,15 @@ const PROJECTS = [
   {
     title: 'Daily Playlister',
     description:
-      'Connects artists with curators who review and add tracks to high-traffic Spotify playlists.',
+      'Connects artists with curators who review and add tracks to Spotify playlists.',
     videoUrl: 'https://alxo-portfolio-assets.s3.amazonaws.com/sendskies.MOV',
     project_links: {
       url: 'https://streamingpromotions.com/what-we-do/',
       github_url: '',
     },
     technologies: {
-      frontend: ['TypeScript', 'React', 'TailwindCSS', 'Framer', 'Vite'],
-      backend: ['TypeScript', 'Node', 'Express', 'Vitest'],
+      frontend: ['TypeScript', 'React', 'TailwindCSS', 'Vite'],
+      backend: ['TypeScript', 'Node', 'Express', 'Ampt', 'Vitest'],
     },
   },
   {
@@ -23,8 +23,8 @@ const PROJECTS = [
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['JS', 'TypeScript', 'React', 'Styled Components', 'Webpack'],
-      backend: ['TypeScript', 'VTL', 'GraphQL', 'NoSQL', 'Serverless'],
+      frontend: ['TypeScript', 'React', 'Webpack'],
+      backend: ['TypeScript', 'VTL', 'AppSync', 'DynamoDB', 'Serverless'],
     },
   },
   {

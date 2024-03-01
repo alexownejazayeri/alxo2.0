@@ -502,8 +502,8 @@ export default class {
     this.mesh.program.uniforms.uTargetRender.value = 0
 
     const inMeshBoundary =
-      this.mouse.x >= (window.innerWidth * 2) / 2 &&
-      this.mouse.y >= (window.innerWidth * 2) / 7
+      this.mouse.x >= (window.innerWidth * 2) / 1.65 &&
+      this.mouse.y >= (window.innerWidth * 2) / 5.5
 
     if (!inMeshBoundary) {
       this.mesh.rotation.y = Math.sin(this.ballRads.y) / 3
