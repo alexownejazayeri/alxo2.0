@@ -297,7 +297,7 @@ export default class {
 
       if (projectVideo.src !== PROJECTS[this.currentPage - 1].videoUrl) {
         projectVideo.src = PROJECTS[this.currentPage - 1].videoUrl
-        projectVideo.load()
+        // projectVideo.load()
       }
 
       const githubLink: HTMLAnchorElement = document.querySelector(

@@ -40,7 +40,7 @@ export default class Home extends Page implements SitePage {
 
       if (videoClips && videoClips.length) {
         videoClips[i].src = PROJECTS[i].videoUrl
-        videoClips[i].load()
+        // videoClips[i].load()
       }
     })
   }
