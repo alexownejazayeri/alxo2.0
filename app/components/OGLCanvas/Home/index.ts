@@ -195,6 +195,8 @@ export default class {
       program: NormalProgram(this.gl),
     })
 
+    this.highlight.position = new Vec3(8, 0, 0)
+
     this.highlight.setParent(this.scene)
     this.highlight.visible = false
   }
@@ -493,9 +495,17 @@ export default class {
     const id = data[0] + (data[1] << 8) + (data[2] << 16) + (data[3] << 24)
 
     if (id !== 0 && this.objects[id - 1]?.offset) {
+      const position = [...this.objects[id - 1]?.offset]
+
       this.activeElementId = id
       this.projectId = id
+      this.highlight.scale.set(1).scale(1.005)
+      this.highlight.rotation.set(0)
+      this.highlight.position.set([8 + position[0], position[1], position[2]])
+
+      this.highlight.visible = true
     } else {
+      this.highlight.visible = false
       this.activeElementId = 0
     }
 

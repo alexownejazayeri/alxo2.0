@@ -12,10 +12,11 @@ block content
           include ../partials/info-line.pug
           .home__projects__info--number
 
+        //- TODO: record dedicated video content?
         .home__projects__media
           .home__projects__media--card1#p1
             //- video(controls muted).project__card__video__clip
-            img().project__card__video__clip
+            img(src="../test-img.png").project__card__video__clip
           .home__projects__media--card2#p2
             //- video(controls muted).project__card__video__clip
             img().project__card__video__clip
@@ -52,7 +53,7 @@ block content
 
           .home__project__technologies
             .home__project__technologies__header
-              .home__project__technologies__header--heading Built Features Using
+              .home__project__technologies__header--heading Technologies Used
             table.home__project__technologies--table
               tr.home__project__technologies--table--row#frontend-row
                 td Frontend

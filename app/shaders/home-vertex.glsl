@@ -4,12 +4,10 @@ attribute vec3 normal;
 
 // Add instanced attributes just like any attribute
 attribute vec3 offset;
-// attribute vec3 random;
 attribute vec4 id;
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
-// uniform float uTime;
 
 varying vec2 vUv;
 varying vec3 vNormal;
