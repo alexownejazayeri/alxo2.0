@@ -9,8 +9,8 @@ varying vec3 vNormal;
 
 void main() {
     if (uTargetRender) {
-        gl_FragColor = vId;
-        return;
+      gl_FragColor = vId;
+      return;
     }
 
     vec3 normal = normalize(vNormal);

@@ -437,25 +437,24 @@
 }
 
 /*
-  Section: helper
-  TODO(alex): think of a good way to handle this.
+  Helper text
 */
-// .home__project__help {
-//   display: flex;
-//   flex-direction: column;
+.home__project__help {
+  position: absolute;
 
-//   height: 100%;
+  max-width: 22rem;
+  text-align: center;
 
-//   justify-content: flex-end;
-//   align-items: center;
-//   text-align: center;
-//   max-width: 22rem;
-// }
+  @include media('>=desktop') {
+    top: 72%;
+    right: 20%;
+  }
 
-// .home__project__help svg {
-//   height: 6.4rem;
-//   width: 6.4rem;
-// }
+  @include media('<desktop') {
+    top: 70%;
+    right: 15%;
+  }
+}
 
 /*
   Section: Technologies

@@ -12,7 +12,6 @@ block content
           include ../partials/info-line.pug
           .home__projects__info--number
 
-        //- TODO: record dedicated video content?
         .home__projects__media
           .home__projects__media--card1#p1
             //- video(controls muted).project__card__video__clip
@@ -46,10 +45,6 @@ block content
               include ../partials/github-icon.pug
               a.home__project__overview__links--url--link(href="#" alt="Project GitHub link" target="_blank")
 
-          //- TODO(alex): add this in a dynamic way
-          //- .home__project__help
-          //-   include ../partials/alxo-icon.pug
-          //-   p Explore my portfolio projects by hovering over the floating orbs.
 
           .home__project__technologies
             .home__project__technologies__header
@@ -60,6 +55,9 @@ block content
 
               tr.home__project__technologies--table--row#backend-row
                 td Backend
+
+        .home__project__help
+          p Explore selected works by mousing over the orbs above.
 
 
       //- MOBILE VIEW
