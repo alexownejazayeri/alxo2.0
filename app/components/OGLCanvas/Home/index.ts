@@ -496,15 +496,24 @@ export default class {
 
     if (id !== 0 && this.objects[id - 1]?.offset) {
       const position = [...this.objects[id - 1]?.offset]
+      position[0] = position[0] + 8
 
       this.activeElementId = id
       this.projectId = id
-      this.highlight.scale.set(1).scale(1.005)
+      this.highlight.scale.set(1).scale(1.05)
       this.highlight.rotation.set(0)
-      this.highlight.position.set([8 + position[0], position[1], position[2]])
+      this.highlight.position.set(position)
 
       this.highlight.visible = true
+
+      if (document.body.style.cursor !== 'pointer') {
+        document.body.style.cursor = 'pointer'
+      }
     } else {
+      if (document.body.style.cursor !== 'auto') {
+        document.body.style.cursor = 'auto'
+      }
+
       this.highlight.visible = false
       this.activeElementId = 0
     }
