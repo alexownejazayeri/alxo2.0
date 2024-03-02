@@ -104,6 +104,31 @@ export default class {
       '.home__mobile__project__container'
     )
 
+    const dude1 = document.getElementById('p1')
+    dude1?.addEventListener('click', () => {
+      this.onProjectSelect(1)
+    })
+    const dude2 = document.getElementById('p2')
+    dude2?.addEventListener('click', () => {
+      this.onProjectSelect(2)
+    })
+    const dude3 = document.getElementById('p3')
+    dude3?.addEventListener('click', () => {
+      this.onProjectSelect(3)
+    })
+    const dude4 = document.getElementById('p4')
+    dude4?.addEventListener('click', () => {
+      this.onProjectSelect(4)
+    })
+    const dude5 = document.getElementById('p5')
+    dude5?.addEventListener('click', () => {
+      this.onProjectSelect(5)
+    })
+    const dude6 = document.getElementById('p6')
+    dude6?.addEventListener('click', () => {
+      this.onProjectSelect(6)
+    })
+
     this.createProgram()
     this.createGeometry()
     this.createMesh()
@@ -274,7 +299,11 @@ export default class {
     this.target = new RenderTarget(this.gl)
   }
 
-  onProjectSelect() {
+  onProjectSelect(id?: number) {
+    if (id) {
+      this.projectId = id
+      return this.projectId
+    }
     return this.projectId
   }
 

@@ -37,7 +37,7 @@ const PROJECTS = [
       github_url: 'https://github.com/Aloompa',
     },
     technologies: {
-      frontend: ['TypeScript', 'React'],
+      frontend: [],
       backend: ['TypeScript', 'VTL', 'AppSync', 'DynamoDB', 'Serverless'],
     },
   },
@@ -80,7 +80,7 @@ const PROJECTS = [
     },
     technologies: {
       frontend: ['JavaScript', 'React', 'Sass'],
-      backend: [],
+      backend: ['Netflify'],
     },
   },
 ]
