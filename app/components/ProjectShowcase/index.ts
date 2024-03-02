@@ -16,12 +16,14 @@ export default class ImageCard {
   videoUrl: string
   title: string
   url: string
+  frontendTech: Array<string>
+  backendTech: Array<string>
 
   projectMedia: HTMLElement | null
   projectNumber: HTMLElement | null
   projectTitle: HTMLElement | null
   projectDescription: HTMLElement | null
-  projectUrl: HTMLElement | null
+  projectUrls: NodeListOf<Element> | null
   projectCard?: Element
   mainProjectMediaIndex: number
   currentProjectIndex: any
@@ -33,24 +35,35 @@ export default class ImageCard {
   project5: HTMLElement
   project6: HTMLElement
 
-  constructor({ description, github_url, number, videoUrl, title, url }) {
+  frontendTableRow: HTMLTableRowElement
+  backendTableRow: HTMLTableRowElement
+
+  constructor({
+    description,
+    github_url,
+    number,
+    videoUrl,
+    title,
+    url,
+    frontendTech,
+    backendTech,
+  }) {
     this.description = description
     this.github_url = github_url
     this.videoUrl = videoUrl
     this.number = number
     this.title = title
     this.url = url
+    this.frontendTech = frontendTech
+    this.backendTech = backendTech
 
     this.projectDescription = document.querySelector(
       '.home__project__overview--description'
     )
-
     this.projectNumber = document.querySelector('.home__projects__info--number')
-
     this.projectTitle = document.querySelector('.home__projects__info--title')
-
-    this.projectUrl = document.querySelector(
-      '.home__project__overview__links--url'
+    this.projectUrls = document.querySelectorAll(
+      '.home__project__overview__links--url--link'
     )
 
     this.project1 = document.getElementById('p1')!
@@ -60,14 +73,54 @@ export default class ImageCard {
     this.project5 = document.getElementById('p5')!
     this.project6 = document.getElementById('p6')!
 
+    this.frontendTableRow = document.getElementById(
+      'frontend-row'
+    )! as HTMLTableRowElement
+
+    this.backendTableRow = document.getElementById(
+      'backend-row'
+    )! as HTMLTableRowElement
+
     this.render()
   }
 
   render(): void {
-    if (this.projectDescription && this.projectTitle && this.projectNumber) {
+    if (
+      this.projectDescription &&
+      this.projectTitle &&
+      this.projectNumber &&
+      this.projectUrls
+    ) {
       this.projectTitle.textContent = this.title
       this.projectDescription.textContent = this.description
       this.projectNumber.textContent = this.number
+      this.projectUrls[0].textContent = this.url
+      this.projectUrls[1].textContent = this.github_url
+
+      this.frontendTableRow.innerHTML = ''
+      this.backendTableRow.innerHTML = ''
+
+      const tableHeaderFrontend = document.createElement('td')
+      tableHeaderFrontend.textContent = 'Frontend'
+      this.frontendTableRow.appendChild(tableHeaderFrontend)
+
+      const tableHeaderBackend = document.createElement('td')
+      tableHeaderBackend.textContent = 'Backend'
+      this.backendTableRow.appendChild(tableHeaderBackend)
+
+      for (const technology of this.frontendTech) {
+        const tableData = document.createElement('td')
+        tableData.textContent = technology
+        tableData.className = 'badge'
+        this.frontendTableRow.appendChild(tableData)
+      }
+
+      for (const technology of this.backendTech) {
+        const tableData = document.createElement('td')
+        tableData.textContent = technology
+        tableData.className = 'badge'
+        this.backendTableRow.appendChild(tableData)
+      }
     }
   }
 
@@ -75,12 +128,44 @@ export default class ImageCard {
     selectedNumber,
     selectedTitle,
     selectedDescription,
+    selectedUrl,
+    selectedGithubUrl,
+    selectedFrontendTech,
+    selectedBackendTech,
     id: selectedProjectIndex,
   }) {
-    if (this.projectDescription && this.projectTitle && this.projectNumber) {
+    if (
+      this.projectDescription &&
+      this.projectTitle &&
+      this.projectNumber &&
+      this.projectUrls
+    ) {
       this.projectTitle.textContent = selectedTitle
       this.projectDescription.textContent = selectedDescription
       this.projectNumber.textContent = selectedNumber
+
+      // Set link text and href
+      this.projectUrls[0].textContent = selectedUrl
+      this.projectUrls[0].setAttribute('href', selectedUrl)
+
+      // Set github text and href
+      const hasGithubUrl = selectedGithubUrl !== ''
+
+      const gitHubLogo = document.querySelector(
+        '.home__project__overview__links--github--icon'
+      )!
+
+      if (!hasGithubUrl) {
+        gitHubLogo.setAttribute('display', 'none')
+      } else {
+        gitHubLogo.setAttribute('display', 'visible')
+      }
+
+      this.projectUrls[1].textContent = selectedGithubUrl
+      this.projectUrls[1].setAttribute('href', selectedGithubUrl)
+
+      this.frontendTech = selectedFrontendTech
+      this.backendTech = selectedBackendTech
 
       if (
         this.currentProjectIndex === undefined ||
@@ -94,6 +179,8 @@ export default class ImageCard {
         this.project4.className = mediaStyles.at(3 - this.currentProjectIndex)!
         this.project5.className = mediaStyles.at(4 - this.currentProjectIndex)!
         this.project6.className = mediaStyles.at(5 - this.currentProjectIndex)!
+
+        this.render()
 
         GSAP.fromTo(
           '.home__projects__info--line',
@@ -128,7 +215,7 @@ export default class ImageCard {
         GSAP.fromTo(
           '.badge',
           { rotationX: -100 },
-          { rotationX: 0, duration: 0.3 }
+          { rotationX: 0, duration: 0.6 }
         )
       }
     }

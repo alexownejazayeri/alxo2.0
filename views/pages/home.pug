@@ -8,54 +8,61 @@ block content
     .home__wrapper
       if !userDevice.isMobile
         .home__projects__info
-          .home__projects__info--title Koality
+          .home__projects__info--title
           include ../partials/info-line.pug
           .home__projects__info--number
-        .home__projects__media
 
+        //- TODO: record dedicated video content?
+        .home__projects__media
           .home__projects__media--card1#p1
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img(src="../test-img.png").project__card__video__clip
           .home__projects__media--card2#p2
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img().project__card__video__clip
           .home__projects__media--card3#p3
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img().project__card__video__clip
           .home__projects__media--card4#p4
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img().project__card__video__clip
           .home__projects__media--card5#p5
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img().project__card__video__clip
           .home__projects__media--card6#p6
-            video(controls muted).project__card__video__clip
+            //- video(controls muted).project__card__video__clip
+            img().project__card__video__clip
 
         .home__project__details
           .home__project__overview
             .home__project__overview--heading Overview
             .home__project__overview--description
-            .home__project__overview__links--heading Project Links
+            .home__project__overview__links--heading Links
             .home__project__overview__links--url
               include ../partials/url-icon.pug
-              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.example.com
+              a.home__project__overview__links--url--link(href="#" alt="Link to project content" target="_blank")
 
             .home__project__overview__links--github
               include ../partials/github-icon.pug
-              a.home__project__overview__links--url--link(href="https://example.com" alt="link to live project demo" target="_blank") https://www.github.com/project-url
+              a.home__project__overview__links--url--link(href="#" alt="Project GitHub link" target="_blank")
+
+          //- TODO(alex): add this in a dynamic way
+          //- .home__project__help
+          //-   include ../partials/alxo-icon.pug
+          //-   p Explore my portfolio projects by hovering over the floating orbs.
 
           .home__project__technologies
             .home__project__technologies__header
-              .home__project__technologies__header--heading Technologies
+              .home__project__technologies__header--heading Technologies Used
             table.home__project__technologies--table
-              tr.home__project__technologies--table--row
+              tr.home__project__technologies--table--row#frontend-row
                 td Frontend
-                td.badge TypeScript
-                td.badge JavaScript
-                td.badge WebGL
-                td
-              tr.home__project__technologies--table--row
+
+              tr.home__project__technologies--table--row#backend-row
                 td Backend
-                td.badge TypeScript
-                td.badge JavaScript
-                td.badge AWS Lambda
-                td.badge DynamoDB
-                td
+
+
+      //- MOBILE VIEW
       if userDevice.isMobile
         .home__mobile__professional__info
           .home__mobile__professional__info--full-stack Full Stack
@@ -63,9 +70,10 @@ block content
           .home__mobile__professional__info--skills JavaScript | TypeScript | GraphQL | AWS
           .home__mobile__blob__container
             include ../partials/slorbie.pug
+
         .home__mobile__project__container
           .home__mobile__progress__indicator
-          .home__mobile__project__title Koality
+          .home__mobile__project__title
           .home__mobile__project__pagination
             .home__mobile__project__pagination--page1 01.
             .home__mobile__project__pagination--page2 02.
@@ -75,12 +83,12 @@ block content
             .home__mobile__project__pagination--page6 06.
           .home__mobile__project__overview
             .home__mobile__project__overview--title OVERVIEW
-            .home__mobile__project__overview--description Two-thirds of fourth graders in the U.S. struggle with literacy; this app uses speech recognition to help.
+            .home__mobile__project__overview--description
           .home__mobile__project__video
-            video(src="" autoplay controls loop muted).home__mobile__project__video--content
+            video(autoplay controls loop muted).home__mobile__project__video--content
           .home__mobile__project__cta
-            a.home__mobile__projects__cta--code(href="#" target="_blank") Github
-            a.home__mobile__projects__cta--link(href="#" target="_blank") Live Site
+            a.home__mobile__projects__cta--code(target="_blank") Github
+            a.home__mobile__projects__cta--link(target="_blank") Live Site
 
         .home__mobile__scroll__indicator
           include ../partials/scroll.pug

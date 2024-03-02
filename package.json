@@ -6,7 +6,8 @@
   "scripts": {
     "build:prod": "webpack --progress --config webpack.config.prod.js",
     "build:dev": "webpack serve --progress --stats-error-details --config webpack.config.dev.js",
-    "dev": "concurrently --kill-others \"nodemon app.ts\" \"yarn build:dev\""
+    "dev": "concurrently --kill-others \"nodemon app.ts\" \"yarn build:dev\"",
+    "serve": "nodemon app.ts"
   },
   "author": "Alex Ownejazayeri",
   "license": "MIT",
