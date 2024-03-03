@@ -28,29 +28,51 @@ app.set('view engine', 'pug')
 app.get('/', (req, res) => {
   const userDevice = detectUserDevice(req)
   const HTMLTitleElementText = 'ALXO | Home'
+  const HTMLMetaTagDescription =
+    "Selected works from projects I've had a hand in through my career."
 
-  res.render('pages/home', { userDevice, HTMLTitleElementText })
+  res.render('pages/home', {
+    userDevice,
+    HTMLTitleElementText,
+    HTMLMetaTagDescription,
+  })
 })
 
 app.get('/about', (req, res) => {
   const userDevice = detectUserDevice(req)
   const HTMLTitleElementText = 'ALXO | About'
+  const HTMLMetaTagDescription =
+    'Big fan of dumplings 🥟 and spending time outside 🌲'
 
-  res.render('pages/about', { userDevice, HTMLTitleElementText })
+  res.render('pages/about', {
+    userDevice,
+    HTMLTitleElementText,
+    HTMLMetaTagDescription,
+  })
 })
 
 app.get('/contact', (req, res) => {
   const userDevice = detectUserDevice(req)
-  const HTMLTitleElementText = 'ALXO | Contact Me'
+  const HTMLTitleElementText = 'ALXO | Contact'
+  const HTMLMetaTagDescription = 'Want to work together? Contact me here.'
 
-  res.render('pages/contact', { userDevice, HTMLTitleElementText })
+  res.render('pages/contact', {
+    userDevice,
+    HTMLTitleElementText,
+    HTMLMetaTagDescription,
+  })
 })
 
 app.get('*', (req, res) => {
   const userDevice = detectUserDevice(req)
-  const HTMLTitleElementText = 'ALXO | Page Not Found'
+  const HTMLTitleElementText = 'ALXO | 404'
+  const HTMLMetaTagDescription = 'Page not found.'
 
-  res.render('pages/404', { userDevice, HTMLTitleElementText })
+  res.render('pages/404', {
+    userDevice,
+    HTMLTitleElementText,
+    HTMLMetaTagDescription,
+  })
 })
 
 app.listen(port, () => {

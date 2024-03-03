@@ -23,7 +23,7 @@ export default class Home extends Page implements SitePage {
   createShowcase() {
     this.projectShowcase = new ProjectShowcase({
       title: PROJECTS[this.projectId]?.title,
-      videoUrl: PROJECTS[this.projectId]?.videoUrl,
+      desktopImgUrl: PROJECTS[this.projectId]?.desktopImgUrl,
       description: PROJECTS[this.projectId]?.description,
       number: `0${this.projectId + 1}.`,
       url: PROJECTS[this.projectId]?.project_links?.url,
@@ -35,12 +35,12 @@ export default class Home extends Page implements SitePage {
 
   createMedia() {
     PROJECTS.map((_, i) => {
-      const videoClips: NodeListOf<HTMLVideoElement> =
-        document.querySelectorAll(`.project__card__video__clip`)
+      const media: NodeListOf<HTMLImageElement> = document.querySelectorAll(
+        `.project__card__image`
+      )
 
-      if (videoClips && videoClips.length) {
-        videoClips[i].src = PROJECTS[i].videoUrl
-        // videoClips[i].load()
+      if (media && media.length) {
+        media[i].src = PROJECTS[i].desktopImgUrl
       }
     })
   }

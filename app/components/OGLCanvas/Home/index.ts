@@ -71,7 +71,7 @@ export default class {
     }
 
     this.mobileProgress = {
-      total: window.innerHeight * 2, // TODO: magic #, move to constant
+      total: window.innerHeight * 2,
       completed: 0,
     }
 
@@ -103,6 +103,140 @@ export default class {
     this.projectsWrapper = document.querySelector(
       '.home__mobile__project__container'
     )
+
+    const dude1 = document.getElementById('p1')
+    dude1?.addEventListener('click', () => {
+      this.onProjectSelect(1)
+    })
+    const dude2 = document.getElementById('p2')
+    dude2?.addEventListener('click', () => {
+      this.onProjectSelect(2)
+    })
+    const dude3 = document.getElementById('p3')
+    dude3?.addEventListener('click', () => {
+      this.onProjectSelect(3)
+    })
+    const dude4 = document.getElementById('p4')
+    dude4?.addEventListener('click', () => {
+      this.onProjectSelect(4)
+    })
+    const dude5 = document.getElementById('p5')
+    dude5?.addEventListener('click', () => {
+      this.onProjectSelect(5)
+    })
+    const dude6 = document.getElementById('p6')
+    dude6?.addEventListener('click', () => {
+      this.onProjectSelect(6)
+    })
+
+    const pageDude1 = document.querySelector(
+      `.home__mobile__project__pagination--page1`
+    )
+    const pageDude2 = document.querySelector(
+      `.home__mobile__project__pagination--page2`
+    )
+    const pageDude3 = document.querySelector(
+      `.home__mobile__project__pagination--page3`
+    )
+    const pageDude4 = document.querySelector(
+      `.home__mobile__project__pagination--page4`
+    )
+    const pageDude5 = document.querySelector(
+      `.home__mobile__project__pagination--page5`
+    )
+    const pageDude6 = document.querySelector(
+      `.home__mobile__project__pagination--page6`
+    )
+
+    const pageDudes = [
+      pageDude1,
+      pageDude2,
+      pageDude3,
+      pageDude4,
+      pageDude5,
+      pageDude6,
+    ]
+
+    pageDude1?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 1
+      pageDude1.classList.add('home__mobile__project__pagination--active')
+    })
+    pageDude2?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 2
+      pageDude2.classList.add('home__mobile__project__pagination--active')
+
+      pageDudes.map((dude, i) => {
+        if (i + 1 < 2 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.add('home__mobile__project__pagination--viewed')
+        }
+        if (i + 1 > 2 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.remove('home__mobile__project__pagination--viewed')
+        }
+      })
+    })
+    pageDude3?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 3
+      pageDude3.classList.add('home__mobile__project__pagination--active')
+
+      pageDudes.map((dude, i) => {
+        if (i + 1 < 3 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.add('home__mobile__project__pagination--viewed')
+        }
+        if (i + 1 > 3 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.remove('home__mobile__project__pagination--viewed')
+        }
+      })
+    })
+    pageDude4?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 4
+      pageDude4.classList.add('home__mobile__project__pagination--active')
+
+      pageDudes.map((dude, i) => {
+        if (i + 1 < 4 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.add('home__mobile__project__pagination--viewed')
+        }
+
+        if (i + 1 > 4 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.remove('home__mobile__project__pagination--viewed')
+        }
+      })
+    })
+    pageDude5?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 5
+      pageDude5.classList.add('home__mobile__project__pagination--active')
+
+      pageDudes.map((dude, i) => {
+        if (i + 1 < 5 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.add('home__mobile__project__pagination--viewed')
+        }
+        if (i + 1 > 5 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.remove('home__mobile__project__pagination--viewed')
+        }
+      })
+    })
+    pageDude6?.addEventListener('click', () => {
+      this.mobileProgress.completed = ((window.innerHeight * 2) / 7) * 6
+      pageDude6.classList.add('home__mobile__project__pagination--active')
+
+      pageDudes.map((dude, i) => {
+        if (i + 1 < 6 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.add('home__mobile__project__pagination--viewed')
+        }
+        if (i + 1 > 6 && dude) {
+          dude?.classList.remove('home__mobile__project__pagination--active')
+          dude?.classList.remove('home__mobile__project__pagination--viewed')
+        }
+      })
+    })
 
     this.createProgram()
     this.createGeometry()
@@ -274,7 +408,11 @@ export default class {
     this.target = new RenderTarget(this.gl)
   }
 
-  onProjectSelect() {
+  onProjectSelect(id?: number) {
+    if (id) {
+      this.projectId = id
+      return this.projectId
+    }
     return this.projectId
   }
 
@@ -293,20 +431,13 @@ export default class {
       projectDescriptionEl.textContent =
         PROJECTS[this.currentPage - 1].description
 
-      const projectVideo: HTMLVideoElement = document.querySelector(
-        '.home__mobile__project__video--content'
+      const projectMedia: HTMLImageElement = document.querySelector(
+        '.home__mobile__project__media--content'
       )!
 
-      if (projectVideo.src !== PROJECTS[this.currentPage - 1].videoUrl) {
-        projectVideo.src = PROJECTS[this.currentPage - 1].videoUrl
-        // projectVideo.load()
+      if (projectMedia.src !== PROJECTS[this.currentPage - 1].mobileImgUrl) {
+        projectMedia.src = PROJECTS[this.currentPage - 1].mobileImgUrl
       }
-
-      const githubLink: HTMLAnchorElement = document.querySelector(
-        '.home__mobile__projects__cta--code'
-      )!
-
-      githubLink.href = PROJECTS[this.currentPage - 1].project_links.github_url
 
       const siteLink: HTMLAnchorElement = document.querySelector(
         '.home__mobile__projects__cta--link'
