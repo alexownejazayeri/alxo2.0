@@ -41,7 +41,6 @@ export default class Home extends Page implements SitePage {
 
       if (media && media.length) {
         media[i].src = PROJECTS[i].desktopImgUrl
-        // media[i].load()
       }
     })
   }

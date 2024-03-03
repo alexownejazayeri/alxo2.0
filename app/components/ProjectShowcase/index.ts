@@ -144,11 +144,9 @@ export default class ImageCard {
       this.projectDescription.textContent = selectedDescription
       this.projectNumber.textContent = selectedNumber
 
-      // Set link text and href
       this.projectUrls[0].textContent = selectedUrl
       this.projectUrls[0].setAttribute('href', selectedUrl)
 
-      // Set github text and href
       const hasGithubUrl = selectedGithubUrl !== ''
 
       const gitHubLogo = document.querySelector(
