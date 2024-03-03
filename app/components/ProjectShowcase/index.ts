@@ -13,7 +13,7 @@ export default class ImageCard {
   description: string
   github_url: string
   number: string
-  videoUrl: string
+  desktopImgUrl: string
   title: string
   url: string
   frontendTech: Array<string>
@@ -42,7 +42,7 @@ export default class ImageCard {
     description,
     github_url,
     number,
-    videoUrl,
+    desktopImgUrl,
     title,
     url,
     frontendTech,
@@ -50,7 +50,7 @@ export default class ImageCard {
   }) {
     this.description = description
     this.github_url = github_url
-    this.videoUrl = videoUrl
+    this.desktopImgUrl = desktopImgUrl
     this.number = number
     this.title = title
     this.url = url

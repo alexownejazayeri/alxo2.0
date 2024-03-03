@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   const userDevice = detectUserDevice(req)
   const HTMLTitleElementText = 'ALXO | Home'
   const HTMLMetaTagDescription =
-    "Selected works from the projects I've had a hand in over my career."
+    "Selected works from projects I've had a hand in through my career."
 
   res.render('pages/home', {
     userDevice,
@@ -42,7 +42,7 @@ app.get('/about', (req, res) => {
   const userDevice = detectUserDevice(req)
   const HTMLTitleElementText = 'ALXO | About'
   const HTMLMetaTagDescription =
-    "I'm a big fan of dumplings 🥟 and spending time outside 🌲"
+    'Big fan of dumplings 🥟 and spending time outside 🌲'
 
   res.render('pages/about', {
     userDevice,
@@ -53,8 +53,8 @@ app.get('/about', (req, res) => {
 
 app.get('/contact', (req, res) => {
   const userDevice = detectUserDevice(req)
-  const HTMLTitleElementText = 'ALXO | Contact Me'
-  const HTMLMetaTagDescription = ''
+  const HTMLTitleElementText = 'ALXO | Contact'
+  const HTMLMetaTagDescription = 'Want to work together? Contact me here.'
 
   res.render('pages/contact', {
     userDevice,
@@ -65,8 +65,8 @@ app.get('/contact', (req, res) => {
 
 app.get('*', (req, res) => {
   const userDevice = detectUserDevice(req)
-  const HTMLTitleElementText = 'ALXO | Page Not Found'
-  const HTMLMetaTagDescription = ''
+  const HTMLTitleElementText = 'ALXO | 404'
+  const HTMLMetaTagDescription = 'Page not found.'
 
   res.render('pages/404', {
     userDevice,
