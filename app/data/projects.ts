@@ -3,7 +3,7 @@ const PROJECTS = [
     title: 'Daily Playlister',
     description:
       'Connects artists with curators who review and add tracks to Spotify playlists.',
-    desktopImgUrl: 'https://i.postimg.cc/g23TXcQB/Daily-Playlister.png',
+    desktopImgUrl: 'https://i.postimg.cc/pdhx1fjp/Daily-Playlister.png',
     mobileImgUrl: 'https://i.postimg.cc/Dz9RFMMk/Daily-Playlister.png',
     project_links: {
       url: 'https://streamingpromotions.com/what-we-do/',
